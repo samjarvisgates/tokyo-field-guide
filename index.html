@@ -171,7 +171,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .pitch{font:400 14px/1.45 var(--sans)}
 .tags{display:flex;flex-wrap:wrap;gap:5px}
 .tag{border:1.5px solid var(--key);padding:5px 9px;font:500 10px/1 var(--mono);letter-spacing:.08em;transform-origin:left}
-.tag.ink{color:var(--paper);border-color:transparent}
+.tag.fill{color:var(--paper);border-color:transparent}
 #card .acts{display:flex;gap:8px;margin-top:2px}
 #card .acts .btn{flex:1;text-align:center;padding:11px 0}
 
@@ -260,6 +260,12 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .efoot .inks{display:flex;align-items:center;gap:5px}
 .efoot .inks i{width:18px;height:9px;display:block}
 .stateblk{display:none}
+#lightbox{position:fixed;inset:0;z-index:2000;background:rgba(23,33,46,.86);display:flex;align-items:center;justify-content:center;padding:48px}
+#lightbox img{max-width:min(92vw,960px);max-height:82vh;border:1.5px solid var(--bone);background:var(--key);box-shadow:0 12px 40px rgba(0,0,0,.4)}
+#lightbox .lb-x{position:absolute;top:18px;right:18px;color:var(--bone);border:1.5px solid var(--bone);padding:9px 12px;font:500 10px/1 var(--mono);letter-spacing:.12em}
+#lightbox .lb-nav{color:var(--bone);font:400 44px/1 var(--black);padding:20px;opacity:.85}
+#lightbox .lb-cap{position:absolute;left:0;right:0;bottom:16px;text-align:center;color:var(--bone);font:400 10px/1 var(--mono);letter-spacing:.14em}
+@media(max-width:1023px){#lightbox{padding:0}#lightbox img{max-width:100vw;max-height:80vh;border:0}#lightbox .lb-nav{position:absolute;top:50%;transform:translateY(-50%)}#lbprev{left:4px}#lbnext{right:4px}}
 
 /* ---------- phone-only bits hidden on desktop ---------- */
 .ph{display:none}
@@ -474,7 +480,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
           <div class="ttl"><span class="n"></span><span class="s"></span></div>
           <div class="pitch"></div>
           <div class="tags"></div>
-          <div class="acts"><button class="btn dark press" id="unfold">UNFOLD THE PLATE</button><a class="btn press" target="_blank" rel="noopener" data-l="map">DIRECTIONS</a><a class="btn press" target="_blank" rel="noopener" data-l="tab">TABELOG</a></div>
+          <div class="acts"><button class="btn dark press" id="unfold">OPEN ENTRY</button><a class="btn press" target="_blank" rel="noopener" data-l="map">DIRECTIONS</a><a class="btn press" target="_blank" rel="noopener" data-l="tab">TABELOG</a></div>
         </div>
       </div>
 
@@ -498,7 +504,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
       <div class="crease"></div>
       <div class="inner">
         <div class="pbar">
-          <button class="btn press" id="fold">← FOLD SHUT</button>
+          <button class="btn press" id="fold">← BACK</button>
           <span class="mid" id="pmid"></span>
           <button class="btn press" id="save">SAVE TO LIST</button>
         </div>
@@ -544,6 +550,14 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
           <div class="efoot"><span id="efoot1"></span><div class="inks"><i style="background:#C8452B"></i><i style="background:#2F5FA8"></i><i style="background:#D8951F"></i><i style="background:#2E6B52"></i><i style="background:#8A4A72"></i><i style="background:#17212E"></i><span style="margin-left:6px">5 SPOT + KEY · BONE 120GSM</span></div><span>TOKYO FIELD GUIDE</span></div>
         </div>
       </div>
+    </div>
+
+    <div id="lightbox" hidden>
+      <button class="lb-x" id="lbx" aria-label="Close">CLOSE ×</button>
+      <button class="lb-nav" id="lbprev" aria-label="Previous">‹</button>
+      <img id="lbimg" alt="">
+      <button class="lb-nav" id="lbnext" aria-label="Next">›</button>
+      <div class="lb-cap" id="lbcap"></div>
     </div>
 
     <div id="setsheet">
@@ -816,6 +830,11 @@ function renderCard(){
   if(!S.plate && mapReady && e.lat && !isPhone()){ if(!map.getBounds().contains([e.lng,e.lat])) map.panTo([e.lng,e.lat],{animate:false}); }
 }
 
+/* ---------------- lightbox ---------------- */
+const LB={items:[],i:0};
+function lbShow(i){ if(!LB.items.length) return; LB.i=(i+LB.items.length)%LB.items.length; $('#lbimg').src=LB.items[LB.i]; $('#lbcap').textContent='FIG. '+String(LB.i+1).padStart(2,'0')+' OF '+String(LB.items.length).padStart(2,'0'); $('#lightbox').hidden=false; }
+function lbClose(){ $('#lightbox').hidden=true; }
+
 /* ---------------- entry / plate ---------------- */
 let counting=null;
 function renderEntry(){
@@ -828,13 +847,13 @@ function renderEntry(){
   hero.querySelector('.c').setAttribute('aria-label',e.nameEn);
   $('#fig1').textContent='FIG. 01 — '+(e.photo?'GOOGLE MAPS PHOTO':'NO PHOTO ON FILE');
   $('#fig2').textContent=(e.google.rating?'GOOGLE ★'+e.google.rating+' · '+(e.google.reviews||0).toLocaleString()+' REVIEWS':'GOOGLE UNRATED')+(e.tabelog.rating?' · TABELOG '+e.tabelog.rating.toFixed(2):'');
-  $('#gallery').innerHTML=(e.gallery||[]).map((g,i)=>`<a href="${g}" target="_blank" rel="noopener" style="background-image:url('${g}')"><span>FIG. ${String(i+2).padStart(2,'0')}</span></a>`).join('');
+  LB.items=[e.photo].filter(Boolean).concat(e.gallery||[]); $('#gallery').innerHTML=(e.gallery||[]).map((g,i)=>`<a href="${g}" data-i="${i+1}" style="background-image:url('${g}')"><span>FIG. ${String(i+2).padStart(2,'0')}</span></a>`).join('');
   $('#pmid').textContent='PLATE '+e.id+' OF '+E.length+' · '+e.nameEn.toUpperCase();
   $('#eslug').textContent=e.id+' · '+e.station+' · '+e.areaEn+' · '+e.tierLabel.toUpperCase().replace(' - ',' · ');
   $('#ename').innerHTML=esc(e.nameEn)+'<small>'+esc(e.nameJa)+'</small>';
   $('#ebig').style.color=e.ink;
   $('#epitch').textContent=e.pitch;
-  $('#etags').innerHTML=e.tags.map((t,i)=>`<span class="tag${i===0?' ink':''}" style="${i===0?'background:'+e.ink:''};transition-delay:${(200+i*45)*k()}ms">${esc(t)}</span>`).join('');
+  $('#etags').innerHTML=e.tags.map((t,i)=>`<span class="tag${i===0?' fill':''}" style="${i===0?'background:'+e.ink:''};transition-delay:${(200+i*45)*k()}ms">${esc(t)}</span>`).join('');
   $('#orders').innerHTML=e.order.length?e.order.map((x,i)=>`<div style="transition-delay:${(260+i*60)*k()}ms"><span>${esc(x)}</span></div>`).join(''):'<div><span>Nothing singled out by reviewers.</span></div>';
   $('#best').textContent=e.best||'—';
   $('#work').textContent=e.workNotes||'—';
@@ -920,13 +939,18 @@ function boot(){
   $('#unfold').addEventListener('click',()=>openEntry(S.sel));
   $('#mopen').addEventListener('click',()=>openEntry(S.sel));
   $('#fold').addEventListener('click',closeEntry);
+  $('#gallery').addEventListener('click',ev=>{ const a=ev.target.closest('a'); if(!a) return; ev.preventDefault(); lbShow(+a.dataset.i); });
+  $('#entry .hero').addEventListener('click',()=>lbShow(0));
+  $('#entry .hero').style.cursor='zoom-in';
+  $('#lbx').addEventListener('click',lbClose); $('#lbprev').addEventListener('click',()=>lbShow(LB.i-1)); $('#lbnext').addEventListener('click',()=>lbShow(LB.i+1));
+  $('#lightbox').addEventListener('click',ev=>{ if(ev.target.id==='lightbox') lbClose(); });
   $('#save').addEventListener('click',()=>{ if(!S.sel) return; if(S.saved.has(S.sel)) S.saved.delete(S.sel); else S.saved.add(S.sel); try{ localStorage.setItem('tfg-saved',JSON.stringify([...S.saved])); }catch(e){} $('#save').textContent=S.saved.has(S.sel)?'SAVED ✓':'SAVE TO LIST'; $('#save').classList.toggle('on',S.saved.has(S.sel)); if(S.filters.saved) renderList(false); });
   $$('#tabs button,#mtop .seg button').forEach(b=>b.addEventListener('click',()=>{ if(S.plate) closeEntry(); setScreen(b.dataset.t); }));
   $('#openset').addEventListener('click',()=>openSet(true));
   $('#openset2').addEventListener('click',()=>openSet(true));
   $('#closeset').addEventListener('click',()=>openSet(false));
   $('#closeset2').addEventListener('click',()=>openSet(false));
-  document.addEventListener('keydown',ev=>{ if(ev.key==='Escape'){ if(S.set) openSet(false); else if(S.plate) closeEntry(); } });
+  document.addEventListener('keydown',ev=>{ if(!$('#lightbox').hidden){ if(ev.key==='Escape') lbClose(); if(ev.key==='ArrowLeft') lbShow(LB.i-1); if(ev.key==='ArrowRight') lbShow(LB.i+1); return; } if(ev.key==='Escape'){ if(S.set) openSet(false); else if(S.plate) closeEntry(); } });
   // paper give on the desktop card
   const card=$('#card');
   card.addEventListener('mousemove',ev=>{ if(isPhone()) return; const r=card.getBoundingClientRect(); const dx=(ev.clientX-r.left)/r.width-.5, dy=(ev.clientY-r.top)/r.height-.5; card.style.transform=`perspective(900px) rotateY(${(dx*1.6).toFixed(2)}deg) rotateX(${(-dy*1.6).toFixed(2)}deg) translateY(${(-Math.abs(dx)-1).toFixed(1)}px)`; card.style.boxShadow=`${(-dx*10).toFixed(1)}px ${(6-dy*6).toFixed(1)}px 20px rgba(23,33,46,.26)`; });
