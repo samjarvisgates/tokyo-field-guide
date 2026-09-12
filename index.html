@@ -161,6 +161,8 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 #card{position:absolute;right:24px;bottom:24px;z-index:500;width:400px;background:var(--bone);border:1.5px solid var(--key);box-shadow:0 3px 12px rgba(23,33,46,.18);transition:box-shadow 140ms linear,transform var(--pull) var(--spring);will-change:transform}
 #card.down{transform:translateY(300px)!important}
 #card .ink{height:7px}
+.cx{position:absolute;top:10px;right:10px;z-index:5;width:28px;height:28px;background:var(--bone);border:1.5px solid var(--key);font:400 18px/24px var(--sans);text-align:center;box-shadow:0 2px 0 rgba(23,33,46,.5)}
+#mcard .cx{top:-14px;right:10px}
 #card .hero{position:relative;height:150px;border-bottom:1.5px solid var(--key)}
 #card .hero .c,#mcard .th .c{opacity:1!important}
 .hero .g,.hero .c{position:absolute;inset:0;background-size:cover;background-position:center}
@@ -441,12 +443,8 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
       </div>
 
       <div class="chips" id="chips">
-        <button class="chip open" data-f="open">OPEN NOW</button>
-        <button class="chip" data-f="full">FULL SESSION</button>
-        <button class="chip" data-f="cafe">CAFÉS ONLY</button>
-        <button class="chip" data-f="solid">SOLID EVIDENCE</button>
+        <button class="chip" data-f="cafes">CAFÉS</button>
         <button class="chip" data-f="paid">DROP-IN SPACES</button>
-        <button class="chip" data-f="view">MAP VIEW</button>
         <button class="chip" data-f="saved">SAVED</button>
       </div>
 
@@ -483,6 +481,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
       </div>
 
       <div id="card" class="down">
+        <button class="cx" data-close="card" aria-label="Close">×</button>
         <div class="ink"></div>
         <div class="hero"><div class="g"></div><div class="c"></div></div>
         <div class="bd">
@@ -496,6 +495,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
       </div>
 
       <div id="mcard" class="down">
+        <button class="cx" data-close="mcard" aria-label="Close">×</button>
         <div class="grab"><i></i></div>
         <div class="ink"></div>
         <div class="g2">
@@ -604,7 +604,7 @@ const isPhone=()=>innerWidth<1024;
 const k=()=>RM.matches?0:1;
 
 let DATA=null, E=[], BY={}, SECTIONS=[];
-const S={w:3,v:3,f:3,sel:null,screen:'index',from:'index',set:false,plate:false,filters:{open:false,full:false,cafe:true,solid:false,paid:true,view:innerWidth>=1024,saved:false},bounds:null,secOff:{},saved:new Set(),now:null,moved:false,prev:{}};
+const S={w:3,v:3,f:3,sel:null,screen:'index',from:'index',set:false,plate:false,filters:{cafes:true,paid:true,view:innerWidth>=1024,saved:false},bounds:null,secOff:{},saved:new Set(),now:null,moved:false,prev:{}};
 try{ (JSON.parse(localStorage.getItem('tfg-saved')||'[]')).forEach(x=>S.saved.add(x)); }catch(e){}
 
 /* ---------------- time / hours ---------------- */
@@ -658,12 +658,9 @@ function scoreOf(e,w,v,f){
 function visible(e){
   const F=S.filters;
   if(S.secOff[e.section]) return false;
-  if(F.open && e._open.st!=='OPEN') return false;
-  if(F.full && e.session!=='full session') return false;
-  if(F.cafe && e.notCafe) return false;
-  if(F.saved && !S.saved.has(e.id)) return false;
-  if(F.solid && e.evidence.thin) return false;
+  if(!F.cafes && !e.paid) return false;
   if(!F.paid && e.paid) return false;
+  if(F.saved && !S.saved.has(e.id)) return false;
   if(F.view && S.bounds){ if(!e.lat) return false; const b=S.bounds; if(e.lng<b.w||e.lng>b.e||e.lat<b.s||e.lat>b.n) return false; }
   return true;
 }
@@ -728,7 +725,7 @@ function renderDials(){
   $$('[data-ed],#edbtn').forEach(x=>x.textContent=edition());
   $('#pl1').textContent=$('#pl2').textContent='TOKYO FIELD GUIDE · '+edition()+' · '+E.length+' ENTRIES · 5 SECTIONS · 5 SPOT INKS ON BONE 120GSM · PRESS RUNNING · ';
   $$('.chip').forEach(c=>c.classList.toggle('on',!!S.filters[c.dataset.f]));
-  location.hash='w'+S.w+'v'+S.v+'f'+S.f+(S.filters.cafe?'c':'')+(S.filters.solid?'s':'')+(S.filters.paid?'p':'')+(S.filters.view?'m':'')+(S.sel?'/'+S.sel:'');
+  location.hash='w'+S.w+'v'+S.v+'f'+S.f+(S.filters.cafes?'c':'')+(S.filters.paid?'p':'')+(S.sel?'/'+S.sel:'');
 }
 function renderList(animate){
   LIST=ranked(); RANK={}; LIST.forEach(r=>RANK[r.e.id]=r);
@@ -759,8 +756,8 @@ function renderList(animate){
     clearTimeout(renderList._t);
     renderList._t=setTimeout(()=>{ E.forEach(e=>{ const r=rows[e.id]; r.classList.remove('mover'); r.style.transform=r.style.transform.replace(/ rotate\([^)]*\)/,''); const roll=r.querySelector('.roll'); roll.classList.add('snap'); roll.classList.remove('go'); roll.querySelector('.a').textContent=RANK[e.id]?RANK[e.id].score:''; }); },(RM.matches?600:340*k()+400));
   }
-  $('#fcount').textContent=LIST.length+' OF '+E.length+(S.filters.view?' IN VIEW':'')+' · '+edition()+' · 70% DIALS + 30% CROWD';
-  $('#lgd').textContent=(LIST.length===E.length?E.length+' ENTRIES':LIST.length+' OF '+E.length)+(S.filters.view?' IN VIEW':'')+', RE-SET';
+  $('#fcount').textContent=LIST.length+' OF '+E.length+(S.filters.view?' ON THIS MAP':'')+' · '+edition();
+  $('#lgd').textContent=(S.filters.view?LIST.length+' ON THIS MAP':LIST.length===E.length?E.length+' ENTRIES':LIST.length+' OF '+E.length)+', RE-SET';
   $('#hcount').innerHTML=E.length+' ENTRIES<br>'+LIST.length+' SHOWN';
   renderMovers();
   syncPins();
@@ -962,7 +959,7 @@ function boot(){
   fetch('data.json?v='+Date.now()).then(r=>r.json()).then(d=>{
     DATA=d; E=d.entries; SECTIONS=d.sections; E.forEach(e=>BY[e.id]=e);
     const h=location.hash.match(/w(\d)v(\d)f(\d)([cspm]*)(?:\/(P?\d{2,3}))?/);
-    if(h){ S.w=+h[1]; S.v=+h[2]; S.f=+h[3]; S.filters.cafe=h[4].includes('c'); S.filters.solid=h[4].includes('s'); S.filters.paid=h[4].includes('p'); S.filters.view=h[4].includes('m'); if(h[5]&&BY[h[5]]) S.sel=h[5]; }
+    if(h){ S.w=+h[1]; S.v=+h[2]; S.f=+h[3]; S.filters.cafes=h[4].includes('c'); S.filters.paid=h[4].includes('p'); if(h[5]&&BY[h[5]]) S.sel=h[5]; }
     E.forEach(e=>{ e._q=crowdOf(e); });
     tick(); buildDials(); buildRows(); buildSections();
     renderDials(); renderList(false);
@@ -978,6 +975,7 @@ function boot(){
   $('#edbtn').addEventListener('click',()=>{ S.prev={}; LIST.forEach(q=>S.prev[q.e.id]=q.score); S.w=S.v=S.f=3; reset(); });
   $$('.chip').forEach(c=>c.addEventListener('click',()=>{ S.filters[c.dataset.f]=!S.filters[c.dataset.f]; reset(); $$('#tabs button').forEach(b=>{ if(b.dataset.t==='saved') b.classList.toggle('on',S.filters.saved); }); }));
   $('#unfold').addEventListener('click',()=>openEntry(S.sel));
+  $$('.cx').forEach(b=>b.addEventListener('click',ev=>{ ev.stopPropagation(); const c=document.getElementById(b.dataset.close); c.classList.add('down'); c.classList.remove('inkon'); }));
   $('#mopen').addEventListener('click',()=>openEntry(S.sel));
   $('#fold').addEventListener('click',closeEntry);
   $('#gallery').addEventListener('click',ev=>{ const a=ev.target.closest('a'); if(!a) return; ev.preventDefault(); lbShow(+a.dataset.i); });
