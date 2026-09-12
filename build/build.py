@@ -264,6 +264,14 @@ def main():
         if os.path.exists(os.path.join(photos_dir, eid + '.jpg')):
             photo = 'photos/' + eid + '.jpg'; stats['photos'] += 1
         gallery = ['photos/%s-%d.jpg' % (eid, n) for n in range(1, 7) if os.path.exists(os.path.join(photos_dir, '%s-%d.jpg' % (eid, n)))]
+        # the first scraped image is usually the same shot as the main photo; drop it when the URLs match
+        try:
+            imgs = json.load(open(os.path.join(HERE, 'images.json')))
+            first = (imgs.get(pid) or [''])[0].split('=')[0]
+            if gallery and photo_url and first and first == photo_url.split('=')[0]:
+                gallery = gallery[1:]
+        except FileNotFoundError:
+            pass
         tier = s(d['Tier'])
         tab_rating = sg.get('Tabelog rating')
         tabelog_url = tabelog_url or (s(sg.get('Tabelog URL')) or None)
