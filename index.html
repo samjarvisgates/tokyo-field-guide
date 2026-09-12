@@ -159,7 +159,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 
 /* detail card (desktop) */
 #card{position:absolute;right:24px;bottom:24px;z-index:500;width:400px;background:var(--bone);border:1.5px solid var(--key);box-shadow:0 3px 12px rgba(23,33,46,.18);transition:box-shadow 140ms linear,transform var(--pull) var(--spring);will-change:transform}
-#card.down{transform:translateY(300px)!important}
+#card.down{transform:translateY(calc(100% + 40px))!important;visibility:hidden;transition:box-shadow 140ms linear,transform var(--pull) var(--spring),visibility 0s linear var(--pull)}
 #card .ink{height:7px}
 .cx{position:absolute;top:10px;right:10px;z-index:5;width:28px;height:28px;background:var(--bone);border:1.5px solid var(--key);font:400 18px/24px var(--sans);text-align:center;box-shadow:0 2px 0 rgba(23,33,46,.5)}
 #mcard .cx{top:-14px;right:10px}
@@ -324,7 +324,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
   #mtop .seg button.on{background:var(--key);color:var(--bone)}
   #mtop .ed{background:var(--bone);border:1.5px solid var(--key);padding:12px 13px;font:500 11px/1 var(--mono)}
   #mcard{display:block;position:absolute;left:16px;right:16px;bottom:calc(20px + env(safe-area-inset-bottom));z-index:500;background:var(--bone);border:1.5px solid var(--key);box-shadow:0 -6px 16px rgba(23,33,46,.2);transform:translateY(0);transition:transform var(--pull) var(--spring)}
-  #mcard.down{transform:translateY(340px)}
+  #mcard.down{transform:translateY(calc(100% + 60px));visibility:hidden;transition:transform var(--pull) var(--spring),visibility 0s linear var(--pull)}
   #mcard .grab{display:flex;justify-content:center;padding:7px 0}
   #mcard .grab i{width:44px;height:4px;background:rgba(23,33,46,.4)}
   #mcard .ink{height:5px}
