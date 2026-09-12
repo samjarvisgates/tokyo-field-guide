@@ -92,6 +92,12 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .row .tx{min-width:0}
 .row .nm{display:flex;justify-content:space-between;align-items:baseline;gap:8px}
 .row .nm .n{font:600 15px/1.2 var(--sans);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.thin{display:inline-block;vertical-align:2px;margin-left:7px;color:var(--paper);font:600 8px/1 var(--mono);letter-spacing:.1em;padding:3px 5px}
+.stamps{display:flex;gap:6px;flex-wrap:wrap}
+.stamp{border:1.5px solid var(--key);padding:6px 9px;font:500 11px/1 var(--mono);white-space:nowrap}
+.stamp b{font-weight:600}
+.stamp small{font-size:9px;opacity:.75;margin-left:4px}
+.evid{font:400 10px/1.6 var(--mono);letter-spacing:.06em}
 .row .sc{display:flex;align-items:baseline;gap:7px;transition:transform var(--set) var(--detent)}
 .row .dl{font:500 11px/1 var(--mono);min-width:22px;text-align:right}
 .roll{height:24px;overflow:hidden}
@@ -234,7 +240,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .gbar{border-top:1.5px solid var(--key);background:var(--tint);padding:10px 30px;display:flex;align-items:baseline;gap:12px}
 .gbar b{font:400 20px/1 var(--black)}
 .gbar span{font:400 10px/1 var(--mono)}
-.axes{display:grid;grid-template-columns:repeat(4,1fr);border-top:1.5px solid var(--key)}
+.axes{display:grid;grid-template-columns:repeat(5,1fr);border-top:1.5px solid var(--key)}
 .axis{padding:16px 18px;border-right:1px solid rgba(23,33,46,.3)}
 .axis:last-child{border-right:0}
 .axis .lab{display:block}
@@ -438,6 +444,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
         <button class="chip open" data-f="open">OPEN NOW</button>
         <button class="chip" data-f="full">FULL SESSION</button>
         <button class="chip" data-f="cafe">CAFÉS ONLY</button>
+        <button class="chip" data-f="solid">SOLID EVIDENCE</button>
         <button class="chip" data-f="saved">SAVED</button>
       </div>
 
@@ -478,6 +485,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
         <div class="bd">
           <div class="slug"><span class="l"></span><span class="badge"></span></div>
           <div class="ttl"><span class="n"></span><span class="s"></span></div>
+          <div class="stamps"></div>
           <div class="pitch"></div>
           <div class="tags"></div>
           <div class="acts"><button class="btn dark press" id="unfold">OPEN ENTRY</button><a class="btn press" target="_blank" rel="noopener" data-l="map">DIRECTIONS</a><a class="btn press" target="_blank" rel="noopener" data-l="tab">TABELOG</a></div>
@@ -492,6 +500,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
           <div class="bd">
             <div class="slug"><span class="l"></span><span class="s"></span></div>
             <div class="n"></div>
+            <div class="stamps"></div>
             <span class="badge"></span>
             <div class="pitch"></div>
           </div>
@@ -527,6 +536,8 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
               <div class="etype">
                 <div class="eslug" id="eslug"></div>
                 <div class="etitle"><div class="n" id="ename"></div><div class="big"><b id="ebig">0.0</b><i id="ereviews"></i></div></div>
+                <div class="stamps" id="estamps" style="margin-top:12px"></div>
+                <div class="evid" id="eevid"></div>
               </div>
               <div class="epitch etype" id="epitch"></div>
               <div class="tags" id="etags"></div>
@@ -537,7 +548,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
               <div class="facts"><div id="fhours"></div><div id="fmeta"></div></div>
             </div>
           </div>
-          <div class="gbar"><b>G · HOW IT SCORES</b><span>FOUR AXES, 1–5, WRITTEN AFTER READING THE 50 NEWEST REVIEWS</span></div>
+          <div class="gbar"><b>G · HOW IT SCORES</b><span>ORDER = 70% DIALS + 30% CROWD · SHRUNK BY REVIEW COUNT · AXES 1–5 FROM THE 50 NEWEST REVIEWS</span></div>
           <div class="axes" id="axes"></div>
           <div class="gbar"><b>H · THE REVIEWS THAT SETTLED IT</b><span>VERBATIM, DATED</span></div>
           <div class="hrow">
@@ -567,6 +578,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
       <div class="blk"><div class="tp"><div class="lab">VIBES</div><div class="num" data-num="vibes"><div><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div></div></div><div class="dial" data-key="vibes"></div><div class="note" data-note="vibes"></div></div>
       <div class="blk"><div class="tp"><div class="lab">FOOD &amp; DRINK</div><div class="num" data-num="food"><div><b>0</b><b>1</b><b>2</b><b>3</b><b>4</b><b>5</b></div></div></div><div class="dial" data-key="food"></div><div class="note" data-note="food"></div></div>
       <div class="movers"><div class="lab" style="border:0;font-size:10px;line-height:1.4">BIGGEST MOVES</div><div id="movers"></div></div>
+      <div style="font:400 11px/1.6 var(--mono);margin-top:10px">ORDER = 70% DIALS + 30% CROWD (GOOGLE + TABELOG, SHRUNK BY REVIEW COUNT). FEW REVIEWS HOLD A PLACE NEAR THE MIDDLE.</div>
       <button class="go press" id="closeset2">RE-SET THE INDEX</button>
     </div>
 
@@ -589,7 +601,7 @@ const isPhone=()=>innerWidth<1024;
 const k=()=>RM.matches?0:1;
 
 let DATA=null, E=[], BY={}, SECTIONS=[];
-const S={w:3,v:3,f:3,sel:null,screen:'index',from:'index',set:false,plate:false,filters:{open:false,full:false,cafe:false,saved:false},secOff:{},saved:new Set(),now:null,moved:false,prev:{}};
+const S={w:3,v:3,f:3,sel:null,screen:'index',from:'index',set:false,plate:false,filters:{open:false,full:false,cafe:true,solid:false,saved:false},secOff:{},saved:new Set(),now:null,moved:false,prev:{}};
 try{ (JSON.parse(localStorage.getItem('tfg-saved')||'[]')).forEach(x=>S.saved.add(x)); }catch(e){}
 
 /* ---------------- time / hours ---------------- */
@@ -624,10 +636,21 @@ function weekLines(e){
 }
 
 /* ---------------- ranking ---------------- */
+// ORDER = 70% dials + 30% crowd (Google + Tabelog, shrunk by review count), then shrunk toward the median by confidence
+const CR={GM:4.07,GS:0.29,TM:3.38,TS:0.17,MG:150,MT:60,DIALS:0.70,CROWD:0.30,MED:6.9};
+function crowdOf(e){
+  const g=e.google.rating, ng=e.evidence.google, t=e.tabelog.rating, nt=e.evidence.tabelog;
+  const zg=g?((((ng*g+CR.MG*CR.GM)/(ng+CR.MG))-CR.GM)/CR.GS):null;
+  const zt=t?((((nt*t+CR.MT*CR.TM)/(nt+CR.MT))-CR.TM)/CR.TS):null;
+  const z=zg==null&&zt==null?0:zt==null?zg:zg==null?zt:0.5*zg+0.5*zt;
+  return 3.3+0.7*Math.max(-2.5,Math.min(2.5,z));
+}
 function scoreOf(e,w,v,f){
-  const t=w+v+f;
-  const mix=t?(w*e.work+v*e.vibe+f*e.food)/t:(e.work+e.vibe+e.food)/3;
-  return {s:(mix*0.9+e.uniq*0.1)*2, cw:t?w*e.work:e.work, cv:t?v*e.vibe:e.vibe, cf:t?f*e.food:e.food};
+  const t=w+v+f, wk=e.workRefined||e.work;
+  const mix=t?(w*wk+v*e.vibe+f*e.food)/t:(wk+e.vibe+e.food)/3;
+  const base=(CR.DIALS*mix+CR.CROWD*e._q)*2;
+  const s=CR.MED+(base-CR.MED)*(0.55+0.45*e.evidence.conf);
+  return {s, cw:t?w*wk:wk, cv:t?v*e.vibe:e.vibe, cf:t?f*e.food:e.food};
 }
 function visible(e){
   const F=S.filters;
@@ -636,6 +659,7 @@ function visible(e){
   if(F.full && e.session!=='full session') return false;
   if(F.cafe && e.notCafe) return false;
   if(F.saved && !S.saved.has(e.id)) return false;
+  if(F.solid && e.evidence.thin) return false;
   return true;
 }
 const cmp=(a,b)=>b.s-a.s||b.e.sheetScore-a.e.sheetScore||(b.e.google.rating||0)-(a.e.google.rating||0)||a.e.nameEn.localeCompare(b.e.nameEn);
@@ -660,7 +684,7 @@ function buildRows(){
     r.innerHTML=`<div class="bleed" style="background:${e.ink}"></div>
       <div class="in"><div class="tab" style="background:${e.ink}"></div><div class="rank"></div>
       <div class="th" style="background:${e.ink}"><div class="g" style="background-image:${thumb(e)}"></div><div class="c" style="background-image:${thumb(e)}" role="img" aria-label="${esc(e.nameEn)}"></div></div>
-      <div class="tx"><div class="nm"><div class="n">${esc(e.nameEn)}</div><div class="sc"><div class="dl">·</div><div class="roll"><div><b class="a">0.0</b><b class="b">0.0</b></div></div></div></div>
+      <div class="tx"><div class="nm"><div class="n">${esc(e.nameEn)}${e.evidence.thin?'<i class="thin" style="background:'+e.ink+'">THIN EVIDENCE</i>':''}</div><div class="sc"><div class="dl">·</div><div class="roll"><div><b class="a">0.0</b><b class="b">0.0</b></div></div></div></div>
       <div class="meta"></div><div class="bar"><i></i><i></i><i></i></div></div></div><div class="rule"></div>`;
     r.addEventListener('click',()=>openEntry(e.id));
     r.addEventListener('mouseenter',()=>{ if(!isPhone()) hoverPin(e.id,true); });
@@ -669,6 +693,7 @@ function buildRows(){
   });
   $('#list').appendChild(frag);
 }
+function gt(e){ return (e.google.rating?'G '+e.google.rating.toFixed(1)+' ('+e.evidence.google+')':'G —')+(e.tabelog.rating?' · T '+e.tabelog.rating.toFixed(2):''); }
 function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
 
 function buildDials(){
@@ -698,7 +723,7 @@ function renderDials(){
   $$('[data-ed],#edbtn').forEach(x=>x.textContent=edition());
   $('#pl1').textContent=$('#pl2').textContent='TOKYO FIELD GUIDE · '+edition()+' · '+E.length+' ENTRIES · 5 SECTIONS · 5 SPOT INKS ON BONE 120GSM · PRESS RUNNING · ';
   $$('.chip').forEach(c=>c.classList.toggle('on',!!S.filters[c.dataset.f]));
-  location.hash='w'+S.w+'v'+S.v+'f'+S.f+(S.sel?'/'+S.sel:'');
+  location.hash='w'+S.w+'v'+S.v+'f'+S.f+(S.filters.cafe?'c':'')+(S.filters.solid?'s':'')+(S.sel?'/'+S.sel:'');
 }
 function renderList(animate){
   LIST=ranked(); RANK={}; LIST.forEach(r=>RANK[r.e.id]=r);
@@ -714,7 +739,7 @@ function renderList(animate){
     r.querySelector('.rank').textContent=q.rank;
     r.querySelector('.dl').textContent=q.move>0?'▲'+q.move:q.move<0?'▼'+(-q.move):'·';
     const bar=r.querySelectorAll('.bar i'); bar[0].style.width=q.w1; bar[1].style.width=q.w2; bar[2].style.width=q.w3;
-    r.querySelector('.meta').textContent=e.id+' · '+e.areaEn+' · '+e._open.label+(e.visitOnly?' · VISIT ONLY':'');
+    r.querySelector('.meta').textContent=e.id+' · '+e.areaEn+' · '+gt(e)+' · '+e._open.label+(e.visitOnly?' · VISIT ONLY':'');
     r.classList.toggle('dim',e._open.st==='CLOSED');
     r.classList.toggle('sel',e.id===S.sel);
     r.classList.toggle('mover',mover);
@@ -729,7 +754,7 @@ function renderList(animate){
     clearTimeout(renderList._t);
     renderList._t=setTimeout(()=>{ E.forEach(e=>{ const r=rows[e.id]; r.classList.remove('mover'); r.style.transform=r.style.transform.replace(/ rotate\([^)]*\)/,''); const roll=r.querySelector('.roll'); roll.classList.add('snap'); roll.classList.remove('go'); roll.querySelector('.a').textContent=RANK[e.id]?RANK[e.id].score:''; }); },(RM.matches?600:340*k()+400));
   }
-  $('#fcount').textContent=LIST.length+' OF '+E.length+' SHOWN · '+edition();
+  $('#fcount').textContent=LIST.length+' OF '+E.length+' · '+edition()+' · 70% DIALS + 30% CROWD';
   $('#lgd').textContent=(LIST.length===E.length?E.length+' ENTRIES':LIST.length+' OF '+E.length)+', RE-SET';
   $('#hcount').innerHTML=E.length+' ENTRIES<br>'+LIST.length+' SHOWN';
   renderMovers();
@@ -810,6 +835,11 @@ function pickPin(id){
 }
 
 /* ---------------- card ---------------- */
+function stamps(e){
+  const g=e.google.rating?`<span class="stamp">GOOGLE ★<b>${e.google.rating.toFixed(1)}</b><small>${e.evidence.google.toLocaleString()} REV</small></span>`:'<span class="stamp">GOOGLE —</span>';
+  const t=e.tabelog.rating?`<span class="stamp">TABELOG <b>${e.tabelog.rating.toFixed(2)}</b><small>${e.evidence.tabelog.toLocaleString()} REV</small></span>`:'';
+  return g+t;
+}
 function renderCard(){
   const q=RANK[S.sel]||LIST[0]; if(!q) return;
   const e=q.e, o=e._open;
@@ -823,6 +853,7 @@ function renderCard(){
     c.querySelector('.n').textContent=e.nameEn;
     const s=c.querySelector('.ttl .s, .slug .s'); s.textContent=q.score; s.style.color=e.ink;
     c.querySelector('.pitch').textContent=e.pitch;
+    c.querySelector('.stamps').innerHTML=stamps(e);
     const t=c.querySelector('.tags'); if(t) t.innerHTML=e.tags.slice(0,4).map(x=>`<span class="tag" style="border-color:${e.ink}">${esc(x)}</span>`).join('');
     c.querySelectorAll('[data-l=map]').forEach(a=>a.href=e.google.mapUrl||'#');
     c.querySelectorAll('[data-l=tab]').forEach(a=>{ a.href=e.tabelog.url||'#'; a.hidden=!e.tabelog.url; });
@@ -846,7 +877,9 @@ function renderEntry(){
   hero.querySelector('.g').style.backgroundImage=thumb(e); hero.querySelector('.c').style.backgroundImage=thumb(e);
   hero.querySelector('.c').setAttribute('aria-label',e.nameEn);
   $('#fig1').textContent='FIG. 01 — '+(e.photo?'GOOGLE MAPS PHOTO':'NO PHOTO ON FILE');
-  $('#fig2').textContent=(e.google.rating?'GOOGLE ★'+e.google.rating+' · '+(e.google.reviews||0).toLocaleString()+' REVIEWS':'GOOGLE UNRATED')+(e.tabelog.rating?' · TABELOG '+e.tabelog.rating.toFixed(2):'');
+  $('#fig2').textContent=((e.gallery||[]).length+(e.photo?1:0))+' PHOTOS · GOOGLE MAPS';
+  $('#estamps').innerHTML=stamps(e);
+  $('#eevid').innerHTML='EVIDENCE '+Math.round(e.evidence.conf*100)+'%'+(e.evidence.thin?' · <b style="color:'+e.ink+'">THIN EVIDENCE — FEW REVIEWS, SCORE HELD NEAR THE MIDDLE</b>':' · '+e.evidence.google.toLocaleString()+' GOOGLE + '+e.evidence.tabelog.toLocaleString()+' TABELOG REVIEWS');
   LB.items=[e.photo].filter(Boolean).concat(e.gallery||[]); $('#gallery').innerHTML=(e.gallery||[]).map((g,i)=>`<a href="${g}" data-i="${i+1}" style="background-image:url('${g}')"><span>FIG. ${String(i+2).padStart(2,'0')}</span></a>`).join('');
   $('#pmid').textContent='PLATE '+e.id+' OF '+E.length+' · '+e.nameEn.toUpperCase();
   $('#eslug').textContent=e.id+' · '+e.station+' · '+e.areaEn+' · '+e.tierLabel.toUpperCase().replace(' - ',' · ');
@@ -866,8 +899,8 @@ function renderEntry(){
   $('#mprice2').innerHTML='PRICE BAND<br>'+esc(e.session.toUpperCase());
   $('#fhours').innerHTML='<b style="font:400 24px/1 var(--black);color:'+(o.st==='OPEN'?INK.V:'#17212E')+'">'+esc(st.textContent)+'</b><br>'+esc(o.label)+'<br>TODAY, '+DAY[S.now.d]+' '+esc(o.today);
   $('#fmeta').innerHTML='PRICE BAND '+esc(e.google.priceBand||'—')+'<br>'+esc(e.session.toUpperCase())+'<br>CONFIDENCE '+esc(e.confidence.toUpperCase())+(e.notCafe?'<br>NOT REALLY A CAFÉ':'');
-  const axes=[['THE ROOM',e.vibe,e.why.vibe],['ONLY HERE',e.uniq,e.why.uniq],['FOOD & DRINK',e.food,e.why.food],['WORKING',e.work,e.why.work]];
-  $('#axes').innerHTML=axes.map((a,i)=>`<div class="axis"><span class="lab">${a[0]}</span><div class="n">${a[1]}<small>OF 5</small></div><div class="t"><i style="--w:${a[1]*20}%;background:${e.ink};transition-delay:${(300+i*70)*k()}ms"></i></div><div class="why">${esc(a[2])}</div></div>`).join('');
+  const axes=[['THE ROOM',e.vibe,e.why.vibe],['ONLY HERE',e.uniq,e.why.uniq+' (Shown, not in the order.)'],['FOOD & DRINK',e.food,e.why.food],['WORKING',(e.workRefined||e.work).toFixed(1).replace(/\.0$/,''),e.why.work],['CROWD',e._q.toFixed(1),'Google and Tabelog ratings, shrunk by review count. 30% of the order at every setting.']];
+  $('#axes').innerHTML=axes.map((a,i)=>`<div class="axis"><span class="lab">${a[0]}</span><div class="n">${a[1]}<small>${a[0]==='WORKING'?'OF 5 · REFINED':'OF 5'}</small></div><div class="t"><i style="--w:${Math.min(100,parseFloat(a[1])*20)}%;background:${e.ink};transition-delay:${(300+i*70)*k()}ms"></i></div><div class="why">${esc(a[2])}</div></div>`).join('');
   en.querySelector('.qr').style.background=e.ink;
   $('#quotes').innerHTML=e.quotes.length?e.quotes.map(x=>`<div class="q"><div class="jp">${esc(x.text)}</div><div class="d">${x.date?'GOOGLE REVIEW · '+x.date.replace('-','·'):'GOOGLE REVIEW'}</div></div>`).join(''):'<div class="q"><div class="jp">—</div></div>';
   $('#qsum').textContent=e.summaryEn||'';
@@ -921,8 +954,9 @@ function tick(){
 function boot(){
   fetch('data.json?v='+Date.now()).then(r=>r.json()).then(d=>{
     DATA=d; E=d.entries; SECTIONS=d.sections; E.forEach(e=>BY[e.id]=e);
-    const h=location.hash.match(/w(\d)v(\d)f(\d)(?:\/(\d{3}))?/);
-    if(h){ S.w=+h[1]; S.v=+h[2]; S.f=+h[3]; if(h[4]&&BY[h[4]]) S.sel=h[4]; }
+    const h=location.hash.match(/w(\d)v(\d)f(\d)([cs]*)(?:\/(\d{3}))?/);
+    if(h){ S.w=+h[1]; S.v=+h[2]; S.f=+h[3]; S.filters.cafe=h[4].includes('c'); S.filters.solid=h[4].includes('s'); if(h[5]&&BY[h[5]]) S.sel=h[5]; }
+    E.forEach(e=>{ e._q=crowdOf(e); });
     tick(); buildDials(); buildRows(); buildSections();
     renderDials(); renderList(false);
     if(!S.sel) S.sel=LIST[0]?LIST[0].e.id:null;
@@ -930,7 +964,7 @@ function boot(){
     if(window.maplibregl) initMap(); else setTimeout(()=>window.maplibregl&&initMap(),800);
     setTimeout(()=>{ $('#card').classList.remove('down'); setTimeout(()=>$('#card').classList.add('inkon'),300); },400);
     setScreen('index');
-    if(h&&h[4]) setTimeout(()=>openEntry(h[4]),600);
+    if(h&&h[5]) setTimeout(()=>openEntry(h[5]),600);
     setInterval(()=>{ tick(); renderList(false); renderCard(); },60000);
   }).catch(err=>{ $('#list').innerHTML='<div style="padding:20px;font:400 12px/1.6 var(--mono)">COULD NOT LOAD data.json — serve this folder over http.<br>'+esc(err.message)+'</div>'; });
 

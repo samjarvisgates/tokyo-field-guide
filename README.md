@@ -14,11 +14,15 @@ Live: https://samjarvisgates.github.io/tokyo-field-guide/
 ## Order formula
 
 ```
-mix   = (W·work + V·vibes + F·food) / (W + V + F)      dials 0–5, sheet scores 1–5
-score = (mix × 0.9 + uniqueness × 0.1) × 2             shown on a 0–10 scale
+crowd = Google and Tabelog ratings, each shrunk toward the city mean by review count
+        (150 prior reviews for Google, 60 for Tabelog), z-scored and averaged
+mix   = (W·work' + V·vibes + F·food) / (W + V + F)      dials 0–5; work' = sheet work-fit refined by
+                                                        outlets / Wi-Fi / laptop signals and time limits
+base  = (0.70·mix + 0.30·crowd) × 2                     0–10 scale
+score = 6.9 + (base − 6.9) × (0.55 + 0.45·confidence)   confidence = reviews / (reviews + 120)
 ```
 
-Uniqueness never leaves the mix. ▲/▼ deltas compare against the 3·3·3 edition. The edition is in the URL hash (`#w5v3f3/038`) so a setting — and an open plate — can be shared.
+Few reviews hold a place near the middle at every setting; rows under 100 Google reviews carry a THIN EVIDENCE mark and the SOLID EVIDENCE chip hides them. ▲/▼ deltas compare against the 3·3·3 edition. The edition, the CAFÉS ONLY / SOLID EVIDENCE chips and an open plate live in the URL hash (`#w5v3f3c/038`).
 
 "Open now" is computed live in Japan time from the sheet's hours; places whose hours could not be parsed say HOURS UNLISTED and are never shown as open.
 

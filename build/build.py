@@ -191,6 +191,30 @@ def price_band(v):
         return 'UNDER ¥' + hi
     return '¥' + lo + '–' + hi
 
+LIMIT_RE = re.compile(r'(\d+)\s*(分|min|時間|h)')
+
+def limit_minutes(txt):
+    """'90分制', '2時間ごとの追加注文', '1時間' -> minutes; None if no figure"""
+    m = LIMIT_RE.search(txt or '')
+    if not m:
+        return 120 if txt else None
+    n = int(m.group(1))
+    return n * 60 if m.group(2) in ('時間', 'h') else n
+
+def refine_work(work, sg, session):
+    w = float(work or 3)
+    o = s(sg.get('Outlets')).lower(); wi = s(sg.get('Wi-Fi')).lower(); lp = s(sg.get('Laptop work')).lower()
+    if o.startswith('many') or 'all' in o: w += 0.5
+    elif o.startswith('some'): w += 0.25
+    if wi.startswith('yes'): w += 0.25
+    if lp.startswith('common'): w += 0.25
+    lim = limit_minutes(s(sg.get('Time limits (from reviews)')))
+    if lim is not None:
+        w -= 0.5 if lim <= 90 else 0.15
+    if session == 'full session': w += 0.25
+    elif session == 'short stop': w -= 0.25
+    return round(max(1.0, min(5.5, w)), 2)
+
 def quotes(v):
     out = []
     for line in split_lines(v):
@@ -274,6 +298,10 @@ def main():
             pass
         tier = s(d['Tier'])
         tab_rating = sg.get('Tabelog rating')
+        tab_reviews = sg.get('Tabelog review count')
+        tab_reviews = int(tab_reviews) if isinstance(tab_reviews, (int, float)) else 0
+        g_reviews = int(d.get('Google reviews') or 0)
+        conf = (g_reviews + 2 * tab_reviews) / (g_reviews + 2 * tab_reviews + 120.0)
         tabelog_url = tabelog_url or (s(sg.get('Tabelog URL')) or None)
         if tabelog_url:
             stats['tabelog'] += 1
@@ -296,7 +324,9 @@ def main():
                         'crowding': s(sg.get('Crowding')), 'timeLimit': s(sg.get('Time limits (from reviews)'))},
             'google': {'rating': d.get('Google rating'), 'reviews': d.get('Google reviews'),
                        'priceBand': price_band(d.get('Price')), 'placeId': pid, 'mapUrl': map_url, 'photoUrl': photo_url},
-            'tabelog': {'url': tabelog_url, 'rating': tab_rating if isinstance(tab_rating, (int, float)) else None},
+            'tabelog': {'url': tabelog_url, 'rating': tab_rating if isinstance(tab_rating, (int, float)) else None, 'reviews': tab_reviews},
+            'workRefined': refine_work(d['Work-fit'], sg, s(d['Work session'])),
+            'evidence': {'google': g_reviews, 'tabelog': tab_reviews, 'conf': round(conf, 3), 'thin': g_reviews < 100},
             'hours': hours, 'hoursRaw': hours_raw or None,
             'lat': g['lat'] if g else None, 'lng': g['lng'] if g else None,
             'address': (g['address'] if g else None), 'approx': approx,
@@ -316,6 +346,22 @@ def main():
     print('entries:', len(entries))
     print('sections:', [(x['name'], x['count']) for x in out['sections']])
     print('stats:', stats)
+    # --- preview the order under the app's formula (kept in sync with index.html)
+    GM, GS, TM, TS, MG, MT = 4.07, 0.29, 3.38, 0.17, 150, 60
+    def q_of(e):
+        g, ng = e['google']['rating'], e['evidence']['google']; t, nt = e['tabelog']['rating'], e['evidence']['tabelog']
+        zg = ((((ng * g + MG * GM) / (ng + MG)) - GM) / GS) if g else None
+        zt = ((((nt * t + MT * TM) / (nt + MT)) - TM) / TS) if t else None
+        z = 0 if zg is None and zt is None else zg if zt is None else zt if zg is None else 0.5 * zg + 0.5 * zt
+        return 3.3 + 0.7 * max(-2.5, min(2.5, z))
+    def score(e, w, v, f):
+        tot = w + v + f
+        mix = (w * e['workRefined'] + v * e['vibe'] + f * e['food']) / tot if tot else (e['workRefined'] + e['vibe'] + e['food']) / 3
+        base = (0.7 * mix + 0.3 * q_of(e)) * 2
+        return 6.9 + (base - 6.9) * (0.55 + 0.45 * e['evidence']['conf'])
+    for w, v, f in [(3, 3, 3), (5, 0, 0), (0, 5, 0), (0, 0, 5)]:
+        top = sorted(entries, key=lambda e: -score(e, w, v, f))[:10]
+        print('top10 @', w, v, f, ':', ['%s %.1f' % (e['nameEn'][:22], score(e, w, v, f)) for e in top])
     missing = [e['nameEn'] for e in entries if e['lat'] is None]
     print('no coords (%d):' % len(missing), missing)
 
