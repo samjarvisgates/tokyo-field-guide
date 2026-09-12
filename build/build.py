@@ -263,6 +263,7 @@ def main():
         photo = None
         if os.path.exists(os.path.join(photos_dir, eid + '.jpg')):
             photo = 'photos/' + eid + '.jpg'; stats['photos'] += 1
+        gallery = ['photos/%s-%d.jpg' % (eid, n) for n in range(1, 7) if os.path.exists(os.path.join(photos_dir, '%s-%d.jpg' % (eid, n)))]
         tier = s(d['Tier'])
         tab_rating = sg.get('Tabelog rating')
         tabelog_url = tabelog_url or (s(sg.get('Tabelog URL')) or None)
@@ -291,7 +292,7 @@ def main():
             'hours': hours, 'hoursRaw': hours_raw or None,
             'lat': g['lat'] if g else None, 'lng': g['lng'] if g else None,
             'address': (g['address'] if g else None), 'approx': approx,
-            'photo': photo,
+            'photo': photo, 'gallery': gallery,
         }
         entries.append(e)
 

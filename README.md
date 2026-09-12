@@ -6,9 +6,9 @@ Live: https://samjarvisgates.github.io/tokyo-field-guide/
 
 ## What's in it
 
-- `index.html` — the whole app (vanilla JS, Leaflet from cdnjs, Google Fonts). Desktop ≥1024px: index + map + unfolding plate. Below that: phone screens (index, map, entry, setting sheet).
+- `index.html` — the whole app (vanilla JS, MapLibre GL from cdnjs with OpenFreeMap's Liberty style, Google Fonts). Desktop ≥1024px: index + map + unfolding plate. Below that: phone screens (index, map, entry, setting sheet).
 - `data.json` — generated from `tokyo_workspots_1.xlsx` (`priority` + `phase2_signals` tabs) by `build/build.py`.
-- `photos/<id>.jpg` — each place's Google Maps main photo, 420px, fetched by `build/fetch.py`.
+- `photos/<id>.jpg` — each place's Google Maps main photo, 420px; `photos/<id>-N.jpg` — up to five more per place (from `build/images.json`, a Google Maps scrape with images on). Both fetched by `build/fetch.py`.
 - `build/apify.json` — coordinates and addresses from the phase-2 Google Maps scrape, keyed by place ID. `build/geocode_extra.json` — four hand-placed pins the scrape didn't cover.
 
 ## Order formula

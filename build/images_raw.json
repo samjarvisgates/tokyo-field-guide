@@ -1,0 +1,6 @@
+{
+  "error": {
+    "type": "insufficient-permissions",
+    "message": "Insufficient permissions for the dataset. Make sure you're passing a correct API token and that it has the required permissions."
+  }
+}

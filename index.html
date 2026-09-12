@@ -7,8 +7,8 @@
 <meta name="description" content="197 Tokyo cafés to work from, indexed by three dials: work, vibes, food & drink. Five spot inks on bone stock.">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+JP:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css" crossorigin="anonymous">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.min.css" crossorigin="anonymous">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/maplibre-gl/4.7.1/maplibre-gl.min.js" crossorigin="anonymous"></script>
 <style>
 :root{
   --key:#17212E; --bone:#F2ECDD; --stock:#E6DFCC; --tint:#EFE3D0; --sel:#F4EEE0; --mapbg:#EFE9D9; --paper:#FFFCF5;
@@ -116,12 +116,16 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 }
 
 /* ---------- map pane ---------- */
-#mapscreen{position:relative;min-width:0;background:var(--mapbg)}
+#mapscreen{position:relative;min-width:0;background:var(--mapbg);isolation:isolate}
 #map{position:absolute;inset:0;background:var(--mapbg);font-family:var(--mono)}
-.leaflet-container{background:var(--mapbg)}
-.leaflet-control-attribution{background:rgba(242,236,221,.88)!important;color:var(--key)!important;font:400 9px/1.4 var(--mono)!important}
-.leaflet-control-attribution a{color:var(--key)!important}
-.leaflet-tile-pane{filter:grayscale(1) contrast(1.18) brightness(1.1)}
+.maplibregl-ctrl-attrib{background:rgba(242,236,221,.88)!important;color:var(--key)!important;font:400 9px/1.4 var(--mono)!important}
+.maplibregl-ctrl-attrib a{color:var(--key)!important}
+.maplibregl-ctrl-group{border:1.5px solid var(--key)!important;border-radius:0!important;box-shadow:0 2px 0 rgba(23,33,46,.5)!important;background:var(--bone)!important}
+.maplibregl-ctrl-group button{background:var(--bone)!important;border-radius:0!important;border-bottom:1px solid var(--key)!important;width:32px!important;height:32px!important}
+.maplibregl-ctrl-group button:last-child{border-bottom:0!important}
+.maplibregl-ctrl-top-right{top:22px;right:22px}
+@media(max-width:1023px){.maplibregl-ctrl-top-right{top:calc(76px + env(safe-area-inset-top));right:16px}}
+.maplibregl-marker{width:0;height:0}
 .pin{display:inline-flex;align-items:stretch;position:relative;white-space:nowrap;border:1.5px solid var(--key);transform:translate(-50%,calc(-100% - 8px));box-shadow:0 2px 4px rgba(23,33,46,.26);transition:transform var(--set) var(--detent),box-shadow var(--set) var(--detent);cursor:pointer}
 .pin.sel{box-shadow:0 5px 9px rgba(23,33,46,.26)}
 .pin .r{background:var(--key);color:var(--bone);font:600 9px/1 var(--mono);padding:4px 5px;letter-spacing:.04em}
@@ -132,7 +136,6 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .pin:hover{transform:translate(-50%,calc(-100% - 15px))}
 .dot{width:11px;height:11px;border:1.5px solid var(--key);transform:translate(-50%,-50%);transition:transform var(--set) var(--detent);cursor:pointer}
 .dot:hover{transform:translate(-50%,calc(-50% - 5px)) scale(1.35)}
-.leaflet-marker-icon{background:none;border:0}
 .sections{position:absolute;left:22px;top:22px;z-index:500;background:var(--bone);border:1.5px solid var(--key);padding:12px 14px}
 .sections .lab{display:block}
 .sections ul{list-style:none;margin:9px 0 0;padding:0;display:flex;flex-direction:column;gap:5px}
@@ -153,6 +156,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 #card.down{transform:translateY(300px)!important}
 #card .ink{height:7px}
 #card .hero{position:relative;height:150px;border-bottom:1.5px solid var(--key)}
+#card .hero .c,#mcard .th .c{opacity:1!important}
 .hero .g,.hero .c{position:absolute;inset:0;background-size:cover;background-position:center}
 .hero .g{filter:grayscale(1) contrast(1.15) brightness(1.12);mix-blend-mode:multiply}
 .hero .c{opacity:0;transition:opacity 180ms linear}
@@ -183,10 +187,19 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
 .pbar .btn.on{background:var(--key);color:var(--bone)}
 #entry .ink{height:7px;transition:transform var(--reg) var(--register)}
 #entry .hero{position:relative;height:280px;overflow:hidden}
+#entry .hero .g{display:none}
+#entry .hero .c{opacity:1!important}
+@media(min-width:1024px){#entry .hero{height:430px}}
 #entry .hero .g,#entry .hero .c{transform:scale(1.06);transition:transform 900ms var(--register),opacity 180ms linear}
 .enter #entry .hero .g,.enter #entry .hero .c{transform:scale(1)}
 .fig{display:flex;justify-content:space-between;gap:12px;font:400 10px/1 var(--mono);padding:9px 20px;border-top:1.5px solid var(--key);border-bottom:1.5px solid var(--key)}
 .fig span:last-child{text-align:right}
+.gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-bottom:1.5px solid var(--key)}
+.gallery:empty{display:none}
+.gallery a{display:block;position:relative;aspect-ratio:4/3;background-size:cover;background-position:center;border-right:1px solid var(--key);border-bottom:1px solid var(--key)}
+.gallery a:nth-child(3n){border-right:0}
+.gallery a span{position:absolute;left:0;bottom:0;background:var(--bone);font:400 9px/1 var(--mono);padding:4px 6px;border-top:1px solid var(--key);border-right:1px solid var(--key)}
+@media(max-width:1023px){.gallery{display:flex;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}.gallery a{flex:0 0 62%;aspect-ratio:4/3;border-bottom:0}}
 .etype{transition:transform var(--reg) var(--register)}
 .regoff #entry .ink{transform:translate(5px,-4px);transition:none}
 .regoff .etype{transform:translate(-4px,3px);transition:none}
@@ -495,6 +508,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
             <div class="eleft">
               <div class="hero"><div class="g"></div><div class="c"></div></div>
               <div class="fig"><span id="fig1"></span><span id="fig2"></span></div>
+              <div class="gallery" id="gallery"></div>
               <div class="stateblk"><div><b id="mstate"></b><span id="mstate2"></span></div><div><b id="mprice"></b><span id="mprice2"></span></div></div>
               <div class="eright etype" style="padding-top:20px;padding-bottom:0">
                 <div class="two">
@@ -721,28 +735,30 @@ function setDial(key,i){
 function reset(){ renderDials(); renderList(true); renderCard(); }
 
 /* ---------------- map ---------------- */
-let map, layer, markers={}, framed=false;
+let map, markers={}, framed=false, mapReady=false;
 function initMap(){
-  map=L.map('map',{zoomControl:false,attributionControl:true,zoomSnap:0.25}).setView([35.681,139.729],11);
-  L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution:'© OpenStreetMap contributors',maxZoom:19}).addTo(map);
-  layer=L.layerGroup().addTo(map); window.__map=map;
-  map.on('zoomend',updateScale);
-  frame(); syncPins();
+  map=new maplibregl.Map({container:'map',style:'https://tiles.openfreemap.org/styles/liberty',center:[139.729,35.681],zoom:12,attributionControl:{compact:false},dragRotate:false,pitchWithRotate:false,canvasContextAttributes:{preserveDrawingBuffer:true}});
+  window.__map=map;
+  map.addControl(new maplibregl.NavigationControl({showCompass:false,showZoom:true}),'top-right');
+  map.touchZoomRotate.disableRotation();
+  map.on('zoom',updateScale); map.on('move',updateScale);
+  map.on('load',()=>{ mapReady=true; frame(); syncPins(); });
 }
 function frame(){
-  if(framed||!map) return;
-  map.invalidateSize();
-  const sz=map.getSize(); if(sz.x<120||sz.y<120){ setTimeout(frame,200); return; }
-  const pts=E.filter(e=>e.lat&&e.lng>139.64&&e.lng<139.83&&e.lat>35.6&&e.lat<35.76).map(e=>[e.lat,e.lng]);
+  if(framed||!map||!mapReady) return;
+  map.resize();
+  const c=map.getContainer(); if(c.clientWidth<120||c.clientHeight<120){ setTimeout(frame,200); return; }
+  const pts=E.filter(e=>e.lat&&e.lng>139.64&&e.lng<139.83&&e.lat>35.6&&e.lat<35.76);
+  let w=180,s=90,e2=-180,n=-90; pts.forEach(p=>{ w=Math.min(w,p.lng); e2=Math.max(e2,p.lng); s=Math.min(s,p.lat); n=Math.max(n,p.lat); });
   const ph=isPhone();
-  map.fitBounds(L.latLngBounds(pts),{animate:false,paddingTopLeft:ph?[30,110]:[200,60],paddingBottomRight:ph?[30,260]:[430,60],maxZoom:13});
+  map.fitBounds([[w,s],[e2,n]],{animate:false,padding:ph?{top:100,left:30,bottom:250,right:30}:{top:40,left:190,bottom:40,right:220},maxZoom:14});
   framed=true; updateScale();
 }
 function updateScale(){
   if(!map) return;
   const c=map.getCenter(), z=map.getZoom();
   const mpp=156543.03392*Math.cos(c.lat*Math.PI/180)/Math.pow(2,z);
-  let km=1; let px=1000/mpp; if(px>220){km=0.5;px=500/mpp;} if(px<60){km=2;px=2000/mpp;}
+  let km=1; let px=1000/mpp; if(px>220){km=0.5;px=500/mpp;} if(px>220){km=0.2;px=200/mpp;} if(px<60){km=2;px=2000/mpp;} if(px<60){km=5;px=5000/mpp;}
   $('#sbar').style.width=px+'px'; $('#slab').style.width=px+'px'; $('#slab').lastElementChild.textContent=(km<1?km*1000+' M':km+' KM');
 }
 function pinHtml(q,sel,top){
@@ -751,24 +767,24 @@ function pinHtml(q,sel,top){
   return `<div class="dot" data-id="${e.id}" style="background:${e.ink}"></div>`;
 }
 function syncPins(){
-  if(!layer) return;
-  layer.clearLayers(); markers={};
+  if(!mapReady) return;
+  Object.values(markers).forEach(m=>m.remove()); markers={};
   const topN=isPhone()?5:10;
   LIST.forEach((q,i)=>{
     const e=q.e; if(!e.lat) return;
     const sel=e.id===S.sel, top=i<topN;
-    const mk=L.marker([e.lat,e.lng],{icon:L.divIcon({html:pinHtml(q,sel,top),className:'',iconSize:[0,0],iconAnchor:[0,0]}),zIndexOffset:sel?1000:top?500:0,keyboard:false}).addTo(layer);
-    mk.on('click',()=>pickPin(e.id));
-    mk.on('mouseover',()=>{ const r=rows[e.id]; if(r&&!isPhone()){ r.classList.add('hov'); } });
-    mk.on('mouseout',()=>{ const r=rows[e.id]; if(r) r.classList.remove('hov'); });
-    markers[e.id]=mk;
+    const el=document.createElement('div'); el.innerHTML=pinHtml(q,sel,top); el.style.zIndex=sel?1000:top?500:0;
+    el.addEventListener('click',ev=>{ ev.stopPropagation(); pickPin(e.id); });
+    el.addEventListener('mouseenter',()=>{ const r=rows[e.id]; if(r&&!isPhone()) r.classList.add('hov'); });
+    el.addEventListener('mouseleave',()=>{ const r=rows[e.id]; if(r) r.classList.remove('hov'); });
+    markers[e.id]=new maplibregl.Marker({element:el,anchor:'center'}).setLngLat([e.lng,e.lat]).addTo(map);
   });
 }
 function hoverPin(id,on){
   const mk=markers[id]; if(!mk) return; const el=mk.getElement(); if(!el||!el.firstElementChild) return;
   const p=el.firstElementChild, isPin=p.classList.contains('pin');
   p.style.transform=on?(isPin?'translate(-50%,calc(-100% - 15px))':'translate(-50%,calc(-50% - 5px)) scale(1.35)'):'';
-  el.style.zIndex=on?2000:'';
+  el.style.zIndex=on?2000:(p.classList.contains('sel')?1000:isPin?500:0);
 }
 function pickPin(id){
   if(id===S.sel){ if(isPhone()) return; }
@@ -797,7 +813,7 @@ function renderCard(){
     c.querySelectorAll('[data-l=map]').forEach(a=>a.href=e.google.mapUrl||'#');
     c.querySelectorAll('[data-l=tab]').forEach(a=>{ a.href=e.tabelog.url||'#'; a.hidden=!e.tabelog.url; });
   });
-  if(!S.plate && map && e.lat && !isPhone()){ const b=map.getBounds().pad(-0.15); if(!b.contains([e.lat,e.lng])) map.panTo([e.lat,e.lng],{animate:false}); }
+  if(!S.plate && mapReady && e.lat && !isPhone()){ if(!map.getBounds().contains([e.lng,e.lat])) map.panTo([e.lng,e.lat],{animate:false}); }
 }
 
 /* ---------------- entry / plate ---------------- */
@@ -812,6 +828,7 @@ function renderEntry(){
   hero.querySelector('.c').setAttribute('aria-label',e.nameEn);
   $('#fig1').textContent='FIG. 01 — '+(e.photo?'GOOGLE MAPS PHOTO':'NO PHOTO ON FILE');
   $('#fig2').textContent=(e.google.rating?'GOOGLE ★'+e.google.rating+' · '+(e.google.reviews||0).toLocaleString()+' REVIEWS':'GOOGLE UNRATED')+(e.tabelog.rating?' · TABELOG '+e.tabelog.rating.toFixed(2):'');
+  $('#gallery').innerHTML=(e.gallery||[]).map((g,i)=>`<a href="${g}" target="_blank" rel="noopener" style="background-image:url('${g}')"><span>FIG. ${String(i+2).padStart(2,'0')}</span></a>`).join('');
   $('#pmid').textContent='PLATE '+e.id+' OF '+E.length+' · '+e.nameEn.toUpperCase();
   $('#eslug').textContent=e.id+' · '+e.station+' · '+e.areaEn+' · '+e.tierLabel.toUpperCase().replace(' - ',' · ');
   $('#ename').innerHTML=esc(e.nameEn)+'<small>'+esc(e.nameJa)+'</small>';
@@ -869,7 +886,7 @@ function setScreen(to){
   if(to==='saved'){ S.filters.saved=!S.filters.saved; to='index'; renderDials(); renderList(true); }
   S.screen=to; body.className=body.className.replace(/\bs-\w+/g,'').trim()+' s-'+to;
   $$('#tabs button,#mtop .seg button').forEach(b=>b.classList.toggle('on',b.dataset.t===to||(b.dataset.t==='saved'&&S.filters.saved)));
-  if(to==='map'){ setTimeout(()=>{ map&&map.invalidateSize(); frame(); const c=$('#mcard'); c.classList.remove('down'); setTimeout(()=>c.classList.add('inkon'),320*k()); },320*k()+20); }
+  if(to==='map'){ setTimeout(()=>{ map&&map.resize(); frame(); const c=$('#mcard'); c.classList.remove('down'); setTimeout(()=>c.classList.add('inkon'),320*k()); },320*k()+20); }
   else { $('#mcard').classList.add('down'); $('#mcard').classList.remove('inkon'); }
 }
 function openSet(on){ S.set=on; document.body.classList.toggle('set',on); }
@@ -883,7 +900,7 @@ function tick(){
 
 /* ---------------- boot ---------------- */
 function boot(){
-  fetch('data.json').then(r=>r.json()).then(d=>{
+  fetch('data.json?v='+Date.now()).then(r=>r.json()).then(d=>{
     DATA=d; E=d.entries; SECTIONS=d.sections; E.forEach(e=>BY[e.id]=e);
     const h=location.hash.match(/w(\d)v(\d)f(\d)(?:\/(\d{3}))?/);
     if(h){ S.w=+h[1]; S.v=+h[2]; S.f=+h[3]; if(h[4]&&BY[h[4]]) S.sel=h[4]; }
@@ -891,7 +908,7 @@ function boot(){
     renderDials(); renderList(false);
     if(!S.sel) S.sel=LIST[0]?LIST[0].e.id:null;
     renderList(false); renderCard();
-    if(window.L) initMap(); else setTimeout(()=>window.L&&initMap(),800);
+    if(window.maplibregl) initMap(); else setTimeout(()=>window.maplibregl&&initMap(),800);
     setTimeout(()=>{ $('#card').classList.remove('down'); setTimeout(()=>$('#card').classList.add('inkon'),300); },400);
     setScreen('index');
     if(h&&h[4]) setTimeout(()=>openEntry(h[4]),600);
@@ -920,7 +937,7 @@ function boot(){
   sheet.addEventListener('touchmove',ev=>{ if(sy==null) return; const dy=ev.touches[0].clientY-sy; if(dy>0){ sheet.style.transition='none'; sheet.style.transform='translateY('+dy+'px)'; } },{passive:true});
   sheet.addEventListener('touchend',ev=>{ if(sy==null) return; const dy=(ev.changedTouches[0].clientY-sy); sheet.style.transition=''; sheet.style.transform=''; if(dy>sheet.offsetHeight*0.4) openSet(false); sy=null; });
   let lastPhone=isPhone();
-  addEventListener('resize',()=>{ const p=isPhone(); if(p!==lastPhone){ lastPhone=p; framed=false; renderList(false); setTimeout(()=>{ map&&map.invalidateSize(); frame(); },50); } else if(map) map.invalidateSize(); });
+  addEventListener('resize',()=>{ const p=isPhone(); if(p!==lastPhone){ lastPhone=p; framed=false; renderList(false); setTimeout(()=>{ map&&map.resize(); frame(); },50); } else if(map) map.resize(); });
 }
 boot();
 })();
