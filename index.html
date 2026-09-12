@@ -446,6 +446,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
         <button class="chip" data-f="cafe">CAFÉS ONLY</button>
         <button class="chip" data-f="solid">SOLID EVIDENCE</button>
         <button class="chip" data-f="paid">DROP-IN SPACES</button>
+        <button class="chip" data-f="view">MAP VIEW</button>
         <button class="chip" data-f="saved">SAVED</button>
       </div>
 
@@ -603,7 +604,7 @@ const isPhone=()=>innerWidth<1024;
 const k=()=>RM.matches?0:1;
 
 let DATA=null, E=[], BY={}, SECTIONS=[];
-const S={w:3,v:3,f:3,sel:null,screen:'index',from:'index',set:false,plate:false,filters:{open:false,full:false,cafe:true,solid:false,paid:true,saved:false},secOff:{},saved:new Set(),now:null,moved:false,prev:{}};
+const S={w:3,v:3,f:3,sel:null,screen:'index',from:'index',set:false,plate:false,filters:{open:false,full:false,cafe:true,solid:false,paid:true,view:innerWidth>=1024,saved:false},bounds:null,secOff:{},saved:new Set(),now:null,moved:false,prev:{}};
 try{ (JSON.parse(localStorage.getItem('tfg-saved')||'[]')).forEach(x=>S.saved.add(x)); }catch(e){}
 
 /* ---------------- time / hours ---------------- */
@@ -663,6 +664,7 @@ function visible(e){
   if(F.saved && !S.saved.has(e.id)) return false;
   if(F.solid && e.evidence.thin) return false;
   if(!F.paid && e.paid) return false;
+  if(F.view && S.bounds){ if(!e.lat) return false; const b=S.bounds; if(e.lng<b.w||e.lng>b.e||e.lat<b.s||e.lat>b.n) return false; }
   return true;
 }
 const cmp=(a,b)=>b.s-a.s||b.e.sheetScore-a.e.sheetScore||(b.e.google.rating||0)-(a.e.google.rating||0)||a.e.nameEn.localeCompare(b.e.nameEn);
@@ -726,7 +728,7 @@ function renderDials(){
   $$('[data-ed],#edbtn').forEach(x=>x.textContent=edition());
   $('#pl1').textContent=$('#pl2').textContent='TOKYO FIELD GUIDE · '+edition()+' · '+E.length+' ENTRIES · 5 SECTIONS · 5 SPOT INKS ON BONE 120GSM · PRESS RUNNING · ';
   $$('.chip').forEach(c=>c.classList.toggle('on',!!S.filters[c.dataset.f]));
-  location.hash='w'+S.w+'v'+S.v+'f'+S.f+(S.filters.cafe?'c':'')+(S.filters.solid?'s':'')+(S.filters.paid?'p':'')+(S.sel?'/'+S.sel:'');
+  location.hash='w'+S.w+'v'+S.v+'f'+S.f+(S.filters.cafe?'c':'')+(S.filters.solid?'s':'')+(S.filters.paid?'p':'')+(S.filters.view?'m':'')+(S.sel?'/'+S.sel:'');
 }
 function renderList(animate){
   LIST=ranked(); RANK={}; LIST.forEach(r=>RANK[r.e.id]=r);
@@ -757,8 +759,8 @@ function renderList(animate){
     clearTimeout(renderList._t);
     renderList._t=setTimeout(()=>{ E.forEach(e=>{ const r=rows[e.id]; r.classList.remove('mover'); r.style.transform=r.style.transform.replace(/ rotate\([^)]*\)/,''); const roll=r.querySelector('.roll'); roll.classList.add('snap'); roll.classList.remove('go'); roll.querySelector('.a').textContent=RANK[e.id]?RANK[e.id].score:''; }); },(RM.matches?600:340*k()+400));
   }
-  $('#fcount').textContent=LIST.length+' OF '+E.length+' · '+edition()+' · 70% DIALS + 30% CROWD';
-  $('#lgd').textContent=(LIST.length===E.length?E.length+' ENTRIES':LIST.length+' OF '+E.length)+', RE-SET';
+  $('#fcount').textContent=LIST.length+' OF '+E.length+(S.filters.view?' IN VIEW':'')+' · '+edition()+' · 70% DIALS + 30% CROWD';
+  $('#lgd').textContent=(LIST.length===E.length?E.length+' ENTRIES':LIST.length+' OF '+E.length)+(S.filters.view?' IN VIEW':'')+', RE-SET';
   $('#hcount').innerHTML=E.length+' ENTRIES<br>'+LIST.length+' SHOWN';
   renderMovers();
   syncPins();
@@ -784,6 +786,7 @@ function initMap(){
   map.addControl(new maplibregl.NavigationControl({showCompass:false,showZoom:true}),'top-right');
   map.touchZoomRotate.disableRotation();
   map.on('zoom',updateScale); map.on('move',updateScale);
+  map.on('moveend',()=>{ const b=map.getBounds(); S.bounds={w:b.getWest(),e:b.getEast(),s:b.getSouth(),n:b.getNorth()}; if(!S.filters.view) return; clearTimeout(initMap._t); initMap._t=setTimeout(()=>{ S.prev={}; LIST.forEach(q=>S.prev[q.e.id]=q.score); renderList(true); renderCard(); },120); });
   map.on('load',()=>{ mapReady=true; frame(); syncPins(); });
 }
 function frame(){
@@ -810,6 +813,7 @@ function pinHtml(q,sel,top){
 }
 function syncPins(){
   if(!mapReady) return;
+  if(S.filters.view){ /* pins for what is in view = LIST; off-screen pins would be invisible anyway */ }
   Object.values(markers).forEach(m=>m.remove()); markers={};
   const topN=isPhone()?5:10;
   LIST.forEach((q,i)=>{
@@ -957,8 +961,8 @@ function tick(){
 function boot(){
   fetch('data.json?v='+Date.now()).then(r=>r.json()).then(d=>{
     DATA=d; E=d.entries; SECTIONS=d.sections; E.forEach(e=>BY[e.id]=e);
-    const h=location.hash.match(/w(\d)v(\d)f(\d)([csp]*)(?:\/(P?\d{2,3}))?/);
-    if(h){ S.w=+h[1]; S.v=+h[2]; S.f=+h[3]; S.filters.cafe=h[4].includes('c'); S.filters.solid=h[4].includes('s'); S.filters.paid=h[4].includes('p'); if(h[5]&&BY[h[5]]) S.sel=h[5]; }
+    const h=location.hash.match(/w(\d)v(\d)f(\d)([cspm]*)(?:\/(P?\d{2,3}))?/);
+    if(h){ S.w=+h[1]; S.v=+h[2]; S.f=+h[3]; S.filters.cafe=h[4].includes('c'); S.filters.solid=h[4].includes('s'); S.filters.paid=h[4].includes('p'); S.filters.view=h[4].includes('m'); if(h[5]&&BY[h[5]]) S.sel=h[5]; }
     E.forEach(e=>{ e._q=crowdOf(e); });
     tick(); buildDials(); buildRows(); buildSections();
     renderDials(); renderList(false);
