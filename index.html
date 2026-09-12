@@ -445,6 +445,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
         <button class="chip" data-f="full">FULL SESSION</button>
         <button class="chip" data-f="cafe">CAFÉS ONLY</button>
         <button class="chip" data-f="solid">SOLID EVIDENCE</button>
+        <button class="chip" data-f="paid">DROP-IN SPACES</button>
         <button class="chip" data-f="saved">SAVED</button>
       </div>
 
@@ -473,6 +474,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;cursor:poin
         <span class="lab">SECTIONS</span>
         <ul id="seclist"></ul>
         <div class="rt"><b>01</b><span>RANK TAB ON<br>THE TOP TEN</span></div>
+        <div class="rt" id="paidnote"><b style="background:var(--key)">P</b><span>DROP-IN SPACES<br>PAY BY THE HOUR</span></div>
       </div>
       <div class="scale">
         <div><div class="bar" id="sbar"><i></i><i></i><i></i></div><div class="lb" id="slab"><span>0</span><span>1 KM</span></div></div>
@@ -601,7 +603,7 @@ const isPhone=()=>innerWidth<1024;
 const k=()=>RM.matches?0:1;
 
 let DATA=null, E=[], BY={}, SECTIONS=[];
-const S={w:3,v:3,f:3,sel:null,screen:'index',from:'index',set:false,plate:false,filters:{open:false,full:false,cafe:true,solid:false,saved:false},secOff:{},saved:new Set(),now:null,moved:false,prev:{}};
+const S={w:3,v:3,f:3,sel:null,screen:'index',from:'index',set:false,plate:false,filters:{open:false,full:false,cafe:true,solid:false,paid:true,saved:false},secOff:{},saved:new Set(),now:null,moved:false,prev:{}};
 try{ (JSON.parse(localStorage.getItem('tfg-saved')||'[]')).forEach(x=>S.saved.add(x)); }catch(e){}
 
 /* ---------------- time / hours ---------------- */
@@ -660,6 +662,7 @@ function visible(e){
   if(F.cafe && e.notCafe) return false;
   if(F.saved && !S.saved.has(e.id)) return false;
   if(F.solid && e.evidence.thin) return false;
+  if(!F.paid && e.paid) return false;
   return true;
 }
 const cmp=(a,b)=>b.s-a.s||b.e.sheetScore-a.e.sheetScore||(b.e.google.rating||0)-(a.e.google.rating||0)||a.e.nameEn.localeCompare(b.e.nameEn);
@@ -684,7 +687,7 @@ function buildRows(){
     r.innerHTML=`<div class="bleed" style="background:${e.ink}"></div>
       <div class="in"><div class="tab" style="background:${e.ink}"></div><div class="rank"></div>
       <div class="th" style="background:${e.ink}"><div class="g" style="background-image:${thumb(e)}"></div><div class="c" style="background-image:${thumb(e)}" role="img" aria-label="${esc(e.nameEn)}"></div></div>
-      <div class="tx"><div class="nm"><div class="n">${esc(e.nameEn)}${e.evidence.thin?'<i class="thin" style="background:'+e.ink+'">THIN EVIDENCE</i>':''}</div><div class="sc"><div class="dl">·</div><div class="roll"><div><b class="a">0.0</b><b class="b">0.0</b></div></div></div></div>
+      <div class="tx"><div class="nm"><div class="n">${esc(e.nameEn)}${e.paid?'<i class="thin" style="background:#17212E">DROP-IN</i>':''}${e.evidence.thin?'<i class="thin" style="background:'+e.ink+'">THIN EVIDENCE</i>':''}</div><div class="sc"><div class="dl">·</div><div class="roll"><div><b class="a">0.0</b><b class="b">0.0</b></div></div></div></div>
       <div class="meta"></div><div class="bar"><i></i><i></i><i></i></div></div></div><div class="rule"></div>`;
     r.addEventListener('click',()=>openEntry(e.id));
     r.addEventListener('mouseenter',()=>{ if(!isPhone()) hoverPin(e.id,true); });
@@ -723,7 +726,7 @@ function renderDials(){
   $$('[data-ed],#edbtn').forEach(x=>x.textContent=edition());
   $('#pl1').textContent=$('#pl2').textContent='TOKYO FIELD GUIDE · '+edition()+' · '+E.length+' ENTRIES · 5 SECTIONS · 5 SPOT INKS ON BONE 120GSM · PRESS RUNNING · ';
   $$('.chip').forEach(c=>c.classList.toggle('on',!!S.filters[c.dataset.f]));
-  location.hash='w'+S.w+'v'+S.v+'f'+S.f+(S.filters.cafe?'c':'')+(S.filters.solid?'s':'')+(S.sel?'/'+S.sel:'');
+  location.hash='w'+S.w+'v'+S.v+'f'+S.f+(S.filters.cafe?'c':'')+(S.filters.solid?'s':'')+(S.filters.paid?'p':'')+(S.sel?'/'+S.sel:'');
 }
 function renderList(animate){
   LIST=ranked(); RANK={}; LIST.forEach(r=>RANK[r.e.id]=r);
@@ -739,7 +742,7 @@ function renderList(animate){
     r.querySelector('.rank').textContent=q.rank;
     r.querySelector('.dl').textContent=q.move>0?'▲'+q.move:q.move<0?'▼'+(-q.move):'·';
     const bar=r.querySelectorAll('.bar i'); bar[0].style.width=q.w1; bar[1].style.width=q.w2; bar[2].style.width=q.w3;
-    r.querySelector('.meta').textContent=e.id+' · '+e.areaEn+' · '+gt(e)+' · '+e._open.label+(e.visitOnly?' · VISIT ONLY':'');
+    r.querySelector('.meta').textContent=e.id+' · '+e.areaEn+(e.paid&&e.priceLine?' · '+e.priceLine:'')+' · '+gt(e)+' · '+e._open.label+(e.visitOnly?' · VISIT ONLY':'');
     r.classList.toggle('dim',e._open.st==='CLOSED');
     r.classList.toggle('sel',e.id===S.sel);
     r.classList.toggle('mover',mover);
@@ -849,14 +852,14 @@ function renderCard(){
     const hero=c.querySelector('.hero, .th'); hero.style.background=e.ink;
     hero.querySelector('.g').style.backgroundImage=thumb(e); hero.querySelector('.c').style.backgroundImage=thumb(e);
     c.querySelector('.slug .l').textContent=e.id+' · '+e.areaEn+' · RANK '+q.rank;
-    const bd=c.querySelector('.badge'); bd.textContent=o.label; bd.style.background=o.st==='OPEN'?INK.V:'#17212E'; bd.style.color=o.st==='OPEN'?'#FFFCF5':'#F2ECDD';
+    const bd=c.querySelector('.badge'); bd.textContent=(e.paid?'DROP-IN'+(e.priceLine?' · '+e.priceLine:'')+' · ':'')+o.label; bd.style.background=o.st==='OPEN'?INK.V:'#17212E'; bd.style.color=o.st==='OPEN'?'#FFFCF5':'#F2ECDD';
     c.querySelector('.n').textContent=e.nameEn;
     const s=c.querySelector('.ttl .s, .slug .s'); s.textContent=q.score; s.style.color=e.ink;
     c.querySelector('.pitch').textContent=e.pitch;
     c.querySelector('.stamps').innerHTML=stamps(e);
     const t=c.querySelector('.tags'); if(t) t.innerHTML=e.tags.slice(0,4).map(x=>`<span class="tag" style="border-color:${e.ink}">${esc(x)}</span>`).join('');
     c.querySelectorAll('[data-l=map]').forEach(a=>a.href=e.google.mapUrl||'#');
-    c.querySelectorAll('[data-l=tab]').forEach(a=>{ a.href=e.tabelog.url||'#'; a.hidden=!e.tabelog.url; });
+    c.querySelectorAll('[data-l=tab]').forEach(a=>{ if(e.paid&&e.website){ a.href=e.website; a.textContent='WEBSITE'; a.hidden=false; } else { a.href=e.tabelog.url||'#'; a.textContent='TABELOG'; a.hidden=!e.tabelog.url; } });
   });
   if(!S.plate && mapReady && e.lat && !isPhone()){ if(!map.getBounds().contains([e.lng,e.lat])) map.panTo([e.lng,e.lat],{animate:false}); }
 }
@@ -882,31 +885,31 @@ function renderEntry(){
   $('#eevid').innerHTML='EVIDENCE '+Math.round(e.evidence.conf*100)+'%'+(e.evidence.thin?' · <b style="color:'+e.ink+'">THIN EVIDENCE — FEW REVIEWS, SCORE HELD NEAR THE MIDDLE</b>':' · '+e.evidence.google.toLocaleString()+' GOOGLE + '+e.evidence.tabelog.toLocaleString()+' TABELOG REVIEWS');
   LB.items=[e.photo].filter(Boolean).concat(e.gallery||[]); $('#gallery').innerHTML=(e.gallery||[]).map((g,i)=>`<a href="${g}" data-i="${i+1}" style="background-image:url('${g}')"><span>FIG. ${String(i+2).padStart(2,'0')}</span></a>`).join('');
   $('#pmid').textContent='PLATE '+e.id+' OF '+E.length+' · '+e.nameEn.toUpperCase();
-  $('#eslug').textContent=e.id+' · '+e.station+' · '+e.areaEn+' · '+e.tierLabel.toUpperCase().replace(' - ',' · ');
+  $('#eslug').textContent=e.id+' · '+e.station+' · '+e.areaEn+' · '+(e.paid?'PAID DROP-IN'+(e.chain?' · '+e.chain.toUpperCase():''):e.tierLabel.toUpperCase().replace(' - ',' · '));
   $('#ename').innerHTML=esc(e.nameEn)+'<small>'+esc(e.nameJa)+'</small>';
   $('#ebig').style.color=e.ink;
   $('#epitch').textContent=e.pitch;
   $('#etags').innerHTML=e.tags.map((t,i)=>`<span class="tag${i===0?' fill':''}" style="${i===0?'background:'+e.ink:''};transition-delay:${(200+i*45)*k()}ms">${esc(t)}</span>`).join('');
   $('#orders').innerHTML=e.order.length?e.order.map((x,i)=>`<div style="transition-delay:${(260+i*60)*k()}ms"><span>${esc(x)}</span></div>`).join(''):'<div><span>Nothing singled out by reviewers.</span></div>';
-  $('#best').textContent=e.best||'—';
+  $('#best').textContent=e.best||'—'; $('#best').closest('.sec').hidden=!e.best&&e.paid; $('#orders').closest('.sec').hidden=!e.order.length&&e.paid;
   $('#work').textContent=e.workNotes||'—';
   const sg=e.signals;
   $('#signals').innerHTML=['OUTLETS '+(sg.outlets||'?'),'WI-FI '+(sg.wifi||'?'),'LAPTOPS '+(sg.laptop||'?'),sg.timeLimit?'TIME LIMIT '+sg.timeLimit:'',sg.crowding?'CROWDING '+sg.crowding:''].filter(Boolean).map(x=>esc(x.toUpperCase())).join('<br>');
-  $('#heads').style.background=e.ink; $('#headsb').textContent=e.headsUp||'—';
+  $('#heads').style.background=e.ink; $('#headsb').textContent=e.headsUp||'—'; $('#heads').hidden=!e.headsUp&&e.paid;
   const st=$('#mstate'); st.textContent=o.st==='OPEN'?'OPEN':o.st==='LATER'?'LATER':o.st==='CLOSED'?'CLOSED':'—'; st.style.color=o.st==='OPEN'?INK.V:'#17212E';
   $('#mstate2').innerHTML=esc(o.label.replace('OPEN · ',''))+'<br>TODAY, '+DAY[S.now.d]+' '+esc(o.today);
-  $('#mprice').textContent=e.google.priceBand||'¥ —';
-  $('#mprice2').innerHTML='PRICE BAND<br>'+esc(e.session.toUpperCase());
+  $('#mprice').textContent=e.paid?(e.priceLine||'PAID'):(e.google.priceBand||'¥ —');
+  $('#mprice2').innerHTML=(e.paid?'DROP-IN RATE':'PRICE BAND')+'<br>'+esc(e.session.toUpperCase());
   $('#fhours').innerHTML='<b style="font:400 24px/1 var(--black);color:'+(o.st==='OPEN'?INK.V:'#17212E')+'">'+esc(st.textContent)+'</b><br>'+esc(o.label)+'<br>TODAY, '+DAY[S.now.d]+' '+esc(o.today);
-  $('#fmeta').innerHTML='PRICE BAND '+esc(e.google.priceBand||'—')+'<br>'+esc(e.session.toUpperCase())+'<br>CONFIDENCE '+esc(e.confidence.toUpperCase())+(e.notCafe?'<br>NOT REALLY A CAFÉ':'');
+  $('#fmeta').innerHTML=(e.paid?'DROP-IN '+esc(e.priceLine||'see website'):'PRICE BAND '+esc(e.google.priceBand||'—'))+'<br>'+esc(e.session.toUpperCase())+'<br>CONFIDENCE '+esc(e.confidence.toUpperCase())+(e.notCafe?'<br>NOT REALLY A CAFÉ':'');
   const axes=[['THE ROOM',e.vibe,e.why.vibe],['ONLY HERE',e.uniq,e.why.uniq+' (Shown, not in the order.)'],['FOOD & DRINK',e.food,e.why.food],['WORKING',(e.workRefined||e.work).toFixed(1).replace(/\.0$/,''),e.why.work],['CROWD',e._q.toFixed(1),'Google and Tabelog ratings, shrunk by review count. 30% of the order at every setting.']];
   $('#axes').innerHTML=axes.map((a,i)=>`<div class="axis"><span class="lab">${a[0]}</span><div class="n">${a[1]}<small>${a[0]==='WORKING'?'OF 5 · REFINED':'OF 5'}</small></div><div class="t"><i style="--w:${Math.min(100,parseFloat(a[1])*20)}%;background:${e.ink};transition-delay:${(300+i*70)*k()}ms"></i></div><div class="why">${esc(a[2])}</div></div>`).join('');
   en.querySelector('.qr').style.background=e.ink;
   $('#quotes').innerHTML=e.quotes.length?e.quotes.map(x=>`<div class="q"><div class="jp">${esc(x.text)}</div><div class="d">${x.date?'GOOGLE REVIEW · '+x.date.replace('-','·'):'GOOGLE REVIEW'}</div></div>`).join(''):'<div class="q"><div class="jp">—</div></div>';
   $('#qsum').textContent=e.summaryEn||'';
-  $('#hours').innerHTML=weekLines(e).map(l=>`<div><span>${l[0]}</span><span>${esc(l[1])}</span></div>`).join('')+`<div style="border-top:1px dotted rgba(23,33,46,.45);margin-top:6px;padding-top:6px"><span>PRICE BAND</span><span>${esc(e.google.priceBand||'—')}</span></div>`;
+  $('#hours').innerHTML=weekLines(e).map(l=>`<div><span>${l[0]}</span><span>${esc(l[1])}</span></div>`).join('')+(e.paid?`<div style="border-top:1px dotted rgba(23,33,46,.45);margin-top:6px;padding-top:6px"><span>DROP-IN</span><span>${esc(e.priceLine||'—')}</span></div><div style="font:400 11px/1.5 var(--mono);white-space:normal;margin-top:4px;display:block">${esc(e.claims||'')}</div>`:`<div style="border-top:1px dotted rgba(23,33,46,.45);margin-top:6px;padding-top:6px"><span>PRICE BAND</span><span>${esc(e.google.priceBand||'—')}</span></div>`);
   $('#addr').innerHTML=(e.address?esc(e.address.replace(/^日本、/,''))+'<br>':'')+esc(e.station)+(e.approx?'<br><span class="mono" style="font-size:10px">PIN IS APPROXIMATE</span>':'');
-  $('#links').innerHTML=[e.google.mapUrl?`<a class="btn press" target="_blank" rel="noopener" href="${e.google.mapUrl}">MAP</a>`:'',e.google.mapUrl?`<a class="btn press" target="_blank" rel="noopener" href="${e.google.mapUrl}">PHOTOS</a>`:'',e.tabelog.url?`<a class="btn press" target="_blank" rel="noopener" href="${e.tabelog.url}">TABELOG${e.tabelog.rating?' ★'+e.tabelog.rating.toFixed(2):''}</a>`:''].join('');
+  $('#links').innerHTML=[e.google.mapUrl?`<a class="btn press" target="_blank" rel="noopener" href="${e.google.mapUrl}">MAP</a>`:'',e.google.mapUrl?`<a class="btn press" target="_blank" rel="noopener" href="${e.google.mapUrl}">PHOTOS</a>`:'',e.tabelog.url?`<a class="btn press" target="_blank" rel="noopener" href="${e.tabelog.url}">TABELOG${e.tabelog.rating?' ★'+e.tabelog.rating.toFixed(2):''}</a>`:'',e.website?`<a class="btn press" target="_blank" rel="noopener" href="${e.website}">WEBSITE</a>`:''].join('');
   $('#efoot1').textContent='PLATE '+e.id+' · '+e.nameEn.toUpperCase()+(e.lat?' · '+e.lat.toFixed(4)+'° N, '+e.lng.toFixed(4)+'° E':'');
   $('#save').textContent=S.saved.has(e.id)?'SAVED ✓':'SAVE TO LIST'; $('#save').classList.toggle('on',S.saved.has(e.id));
   // counters
@@ -954,8 +957,8 @@ function tick(){
 function boot(){
   fetch('data.json?v='+Date.now()).then(r=>r.json()).then(d=>{
     DATA=d; E=d.entries; SECTIONS=d.sections; E.forEach(e=>BY[e.id]=e);
-    const h=location.hash.match(/w(\d)v(\d)f(\d)([cs]*)(?:\/(\d{3}))?/);
-    if(h){ S.w=+h[1]; S.v=+h[2]; S.f=+h[3]; S.filters.cafe=h[4].includes('c'); S.filters.solid=h[4].includes('s'); if(h[5]&&BY[h[5]]) S.sel=h[5]; }
+    const h=location.hash.match(/w(\d)v(\d)f(\d)([csp]*)(?:\/(P?\d{2,3}))?/);
+    if(h){ S.w=+h[1]; S.v=+h[2]; S.f=+h[3]; S.filters.cafe=h[4].includes('c'); S.filters.solid=h[4].includes('s'); S.filters.paid=h[4].includes('p'); if(h[5]&&BY[h[5]]) S.sel=h[5]; }
     E.forEach(e=>{ e._q=crowdOf(e); });
     tick(); buildDials(); buildRows(); buildSections();
     renderDials(); renderList(false);

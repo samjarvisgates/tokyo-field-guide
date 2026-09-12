@@ -229,6 +229,80 @@ def tags(v):
     t = [x.strip().upper() for x in re.split(r'[,、;]', s(v)) if x.strip()]
     return t[:6]
 
+# ---------------------------------------------------------------- paid drop-in spaces
+YEN_RE = re.compile(r'[¥￥]\s*([\d,]+)|([\d,]+)\s*円')
+
+def price_line(claims):
+    """'ドロップイン ¥300/30分、1日 ¥2,750' -> '¥300/30 MIN · ¥2,750/DAY' (first hour-ish and day-ish figures found)"""
+    t = s(claims)
+    out = []
+    m = re.search(r'[¥￥]?\s*([\d,]{3,6})\s*円?\s*[/／]?\s*(30分|1時間|時間|h|H)', t)
+    if m:
+        out.append('¥' + m.group(1).replace('¥', '') + ('/30 MIN' if '30' in m.group(2) else '/H'))
+    m = re.search(r'(?:1\s*日|1DAY|day|一日|終日)\D{0,12}?[¥￥]?\s*([\d,]{4,6})|[¥￥]\s*([\d,]{4,6})\s*[/／]\s*(?:day|1日|日)', t, re.I)
+    if m:
+        out.append('¥' + (m.group(1) or m.group(2)) + '/DAY')
+    return ' · '.join(out) if out else None
+
+def paid_entries(sheets, photos_dir, apify_geo):
+    """B_paid rows -> entries shaped like the café entries."""
+    _, rows = table(sheets['B_paid'])
+    try:
+        g = json.load(open(os.path.join(HERE, 'paid_google.json')))
+    except FileNotFoundError:
+        g = {}
+    try:
+        ed = json.load(open(os.path.join(HERE, 'paid_editorial.json')))
+    except FileNotFoundError:
+        ed = {}
+    out = []
+    for i, (rownum, d) in enumerate(rows):
+        if not d.get('Name (JA)'):
+            continue
+        eid = 'P%02d' % (i + 1)
+        gg = g.get(str(i)) or {}
+        matched = bool(gg.get('matched'))
+        e0 = ed.get(eid) or {}
+        area = s(d['Area group']); sec = SECTION_OF.get(area, 'M')
+        chain = s(d.get('Chain'))
+        claims = s(d.get('Claims: outlets / Wi-Fi / time limits / laptop bans'))
+        pl = e0.get('priceLine') or price_line(claims)
+        hours = parse_hours(gg.get('hoursRaw')) if matched else None
+        g_reviews = int(gg.get('reviews') or 0) if matched else 0
+        conf = g_reviews / (g_reviews + 120.0)
+        vibe, uniq, food, work = (e0.get('vibe', 3), e0.get('uniq', 2 if chain else 3), e0.get('food', 2), e0.get('work', 5))
+        gallery = ['photos/%s-%d.jpg' % (eid, n) for n in range(1, 4) if os.path.exists(os.path.join(photos_dir, '%s-%d.jpg' % (eid, n)))]
+        photo = 'photos/%s.jpg' % eid if os.path.exists(os.path.join(photos_dir, eid + '.jpg')) else None
+        sig = e0.get('signals') or {'outlets': 'many', 'wifi': 'yes', 'laptop': 'common', 'crowding': '', 'timeLimit': ''}
+        e = {
+            'id': eid, 'paid': True, 'priceLine': pl, 'claims': claims, 'chain': chain or None,
+            'nameEn': s(d['Name (EN)']), 'nameJa': s(d['Name (JA)']),
+            'areaGroup': area, 'areaEn': AREA_EN.get(area, area), 'station': re.sub(r'\s*徒歩.*$', '', s(d['Area / station detail']).split('/')[0].split('／')[0]).strip(),
+            'section': sec, 'ink': INK[sec],
+            'tier': 'P', 'tierLabel': 'P - paid drop-in', 'session': 'full session',
+            'visitOnly': False, 'notCafe': False, 'confidence': 'medium' if matched else 'low', 'status': 'paid',
+            'vibe': vibe, 'uniq': uniq, 'food': food, 'work': work,
+            'sheetScore': 0,
+            'why': e0.get('why') or {'vibe': 'Not yet written.', 'uniq': 'Not yet written.', 'food': 'Not yet written.', 'work': 'Built for laptops: outlets, Wi-Fi and a seat you pay for by the hour.'},
+            'pitch': e0.get('pitch') or ('Paid drop-in workspace' + (' (' + chain + ')' if chain else '') + '. ' + claims[:120]),
+            'tags': e0.get('tags') or ['PAID DROP-IN'] + (['CHAIN'] if chain else []),
+            'order': e0.get('order') or [], 'best': e0.get('best') or '', 'workNotes': e0.get('workNotes') or claims, 'headsUp': e0.get('headsUp') or '',
+            'quotes': e0.get('quotes') or [], 'summaryEn': e0.get('summaryEn') or '',
+            'signals': sig,
+            'google': {'rating': gg.get('rating') if matched else None, 'reviews': g_reviews, 'priceBand': None,
+                       'placeId': gg.get('placeId') if matched else None, 'mapUrl': gg.get('mapUrl') if matched else None, 'photoUrl': gg.get('imageUrl') if matched else None},
+            'website': gg.get('website') if matched else None,
+            'tabelog': {'url': None, 'rating': None, 'reviews': 0},
+            'workRefined': min(5.5, work + 0.5),
+            'evidence': {'google': g_reviews, 'tabelog': 0, 'conf': round(conf, 3), 'thin': g_reviews < 100},
+            'hours': hours, 'hoursRaw': gg.get('hoursRaw') if matched else None,
+            'lat': gg.get('lat') if matched else None, 'lng': gg.get('lng') if matched else None,
+            'address': gg.get('address') if matched else None, 'approx': False,
+            'photo': photo, 'gallery': gallery,
+        }
+        out.append(e)
+    return out
+
 # ---------------------------------------------------------------- main
 def main():
     sheets, links = read_xlsx(XLSX)
@@ -334,6 +408,9 @@ def main():
         }
         entries.append(e)
 
+    paid = paid_entries(sheets, photos_dir, geo)
+    print('paid entries:', len(paid), 'matched:', sum(1 for e in paid if e['lat']), 'written:', sum(1 for e in paid if e['quotes']))
+    entries += paid
     ids = [e['id'] for e in entries]
     assert len(ids) == len(set(ids)), 'duplicate ids'
     out = {

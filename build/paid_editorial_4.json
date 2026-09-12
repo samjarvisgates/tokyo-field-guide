@@ -1,0 +1,847 @@
+{
+  "P52": {
+    "pitch": "Thirteen-seat free space above a bike shop on Shibuya 3-chome, run by rental-office firm ABLAZE; suits a cheap hour or a whiteboard meeting.",
+    "tags": [
+      "PAID DROP-IN",
+      "FREE DRINK BAR",
+      "MEETING ROOMS",
+      "SMALL ROOM"
+    ],
+    "priceLine": "¥330/H",
+    "order": [
+      "Free drink bar (per listing; contents not confirmed)"
+    ],
+    "best": "Weekday daytime is the only safe bet: Google lists 10:00-17:00 Monday to Friday and closed weekends, whatever the listing's 7-24 claim. Every reviewer so far came for the meeting room.",
+    "workNotes": "Wi-Fi, free drinks, a copier and bookable meeting rooms with a whiteboard per the listing; 13 open seats; outlets not mentioned. No stated time limit.",
+    "headsUp": "Hours conflict: the listing says 7:00-24:00, Google says weekdays 10:00-17:00 only. The door is on the 2F above a motorbike shop, two convenience stores past Shibuya police station.",
+    "vibe": 3,
+    "uniq": 2,
+    "food": 2,
+    "work": 3,
+    "why": {
+      "vibe": "Reviewers call it clean and well located, but it is a small 2F office floor rather than a room with character.",
+      "uniq": "A generic rental-office free space; the only distinguishing feature is the whiteboard people keep mentioning.",
+      "food": "Listing promises a free drink bar; nothing says what is in it.",
+      "work": "Wi-Fi and a copier, but Google's 10-17 weekday hours and no evidence about outlets make it a short-stay option."
+    },
+    "quotes": [
+      {
+        "date": "2024-11",
+        "text": "ホワイトボードがあって、有意義なmtgが出来ました。"
+      },
+      {
+        "date": "2024-10",
+        "text": "立地もよくすごく綺麗で使いやすかったです。"
+      },
+      {
+        "date": "2023-05",
+        "text": "コンビニ2つ越えて、バイク店の2階ですね。"
+      }
+    ],
+    "summaryEn": "Six reviews, all from meeting-room users and all positive: clean, well located, useful whiteboard. Nothing at all on drop-in desk work.",
+    "signals": {
+      "outlets": "not mentioned",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "",
+      "timeLimit": ""
+    }
+  },
+  "P53": {
+    "pitch": "Budget coin-op coworking on two floors of the ageing Kinro Fukushi Kaikan on Koen-dori; a silent 2F for solo grind, a chattier 1F below.",
+    "tags": [
+      "PAID DROP-IN",
+      "CHAIN",
+      "QUIET",
+      "BUDGET",
+      "STUDENTS"
+    ],
+    "priceLine": "¥275/30 MIN · ¥1,980/DAY",
+    "order": [
+      "Doutor coffee vending machine, ¥100 a cup",
+      "Bring your own food; no bins, so rubbish goes home with you"
+    ],
+    "best": "The conversation-banned 2F on a weekday evening, when one reviewer counted two other people; 1F takes the talkers. Mondays close at 17:00.",
+    "workNotes": "Outlets at the desks with desk lamps and lightning cables; free Wi-Fi measured around 150Mbps; web calls allowed on 1F only. Check-in is by QR code on the desk, and OfficePass users must first collect a coupon code at the 2F public-corporation counter.",
+    "headsUp": "It is a municipal welfare hall: creaking floors, school-style toilets, noise carrying between floors and passing ad trucks; one October 2024 review found the whole building shut on a day Google said open.",
+    "vibe": 2,
+    "uniq": 3,
+    "food": 1,
+    "work": 4,
+    "why": {
+      "vibe": "Comfortable chairs and a surprising hush for Koen-dori, but dim lighting, creaky floors and an old public building drag it down.",
+      "uniq": "Coworking inside a workers' welfare hall with a silent upper floor is an odd enough idea to stand out.",
+      "food": "A ¥100 Doutor vending machine and no bins is as basic as it gets.",
+      "work": "Outlets, decent Wi-Fi, a ¥1,980 day cap and a no-talking floor; the two-step check-in and noise leaks are the limitations."
+    },
+    "quotes": [
+      {
+        "date": "2025-06",
+        "text": "会話禁止の２階は落ち着いた環境。"
+      },
+      {
+        "date": "2024-08",
+        "text": "コーヒーの自動販売機があり1杯100円で飲める。"
+      },
+      {
+        "date": "2024-06",
+        "text": "他の人が通ると床がミシミシ言う"
+      },
+      {
+        "date": "2025-05",
+        "text": "時々巡回してくるアドトラックがうるさいけれども"
+      }
+    ],
+    "summaryEn": "Reviewers like the price, the chairs and the silent 2F, and report Wi-Fi and charging are fine; complaints are noise (1F chatter, creaking floors, ad trucks), a fiddly two-step check-in, the dated building and a booking site that would not load on-site.",
+    "signals": {
+      "outlets": "many",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "1F busy and chatty; 2F often near-empty",
+      "timeLimit": ""
+    }
+  },
+  "P54": {
+    "pitch": "Hikarie's 8F creative lounge: library, grind-your-own drip coffee, phone booths and hourly desks for the well-funded freelancer or startup meeting.",
+    "tags": [
+      "PAID DROP-IN",
+      "PHONE BOOTHS",
+      "NEAR STATION",
+      "LONG HOURS",
+      "PRICEY"
+    ],
+    "priceLine": "¥1,100/H · NO DAY CAP",
+    "order": [
+      "Grind-and-drip coffee, self-service (you wash up)",
+      "Drinks vending machine (green tea and the like)",
+      "Hikarie restaurant floors downstairs"
+    ],
+    "best": "Evenings up to 22:00 or weekends, when the building's food floors are still open; booth seats for heads-down work, sofas for reading. Avoid Tuesdays, which one review says are closed to lounge use.",
+    "workNotes": "Wi-Fi, phone booths and bookable meeting rooms; staff will lend a monitor; outlets not mentioned in the brief. First visit means a ¥300 registration on the venue's tablet, and billing is hourly with no daily cap.",
+    "headsUp": "Four hours cost one reviewer nearly ¥6,000 with no day rate. Loud typists and mutterers go unchecked, and two 2026 reviews slate the reception desk.",
+    "vibe": 4,
+    "uniq": 4,
+    "food": 3,
+    "work": 4,
+    "why": {
+      "vibe": "Zoned work, meeting and eating areas with considered lighting and sound; reviewers call the atmosphere genuinely pleasant.",
+      "uniq": "A curated creative lounge with a library, exhibitions and a coffee-grinding ritual is not something the chains offer.",
+      "food": "Proper drip coffee you make yourself plus a vending machine; real food is downstairs, not in the room.",
+      "work": "Long hours, booths and lent monitors, but hourly-only pricing and a clunky sign-up limit it to short sessions."
+    },
+    "quotes": [
+      {
+        "date": "2026-03",
+        "text": "4時間利用で6000円弱した。ワンデイのリミットがないのは致命的"
+      },
+      {
+        "date": "2025-11",
+        "text": "全体的に心地よい雰囲気が流れており"
+      },
+      {
+        "date": "2026-01",
+        "text": "火曜日はシェアラウンジとしては使えないらしいんですが"
+      },
+      {
+        "date": "2026-05",
+        "text": "キーボードを叩く音がドラムのようにうるさかったり、独り言が多かったり。"
+      }
+    ],
+    "summaryEn": "Praise for the atmosphere, zoned spaces, good chairs, helpful staff and the coffee ritual; complaints about price with no day cap, a clunky tablet sign-up, unexplained Tuesday closures, noisy neighbours and, lately, rude reception.",
+    "signals": {
+      "outlets": "not mentioned",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "",
+      "timeLimit": ""
+    }
+  },
+  "P55": {
+    "pitch": "Glass-fronted two-floor drop-in a minute from Miyamasuzaka crossing; no registration, self-serve drinks, HHKB keyboards to try, effectively 24 hours.",
+    "tags": [
+      "PAID DROP-IN",
+      "24 HOURS",
+      "FREE DRINK BAR",
+      "PHONE BOOTHS",
+      "NEAR STATION",
+      "NO REGISTRATION"
+    ],
+    "priceLine": "¥275/15 MIN · ¥3,850/DAY",
+    "order": [
+      "Free self-serve coffee and soft drinks"
+    ],
+    "best": "Nights are what regulars use for quiet; daytime brings groups and video calls on both floors. An early-morning typhoon day was one reviewer's most productive visit.",
+    "workNotes": "Outlets, fast Wi-Fi, monitors, chargers, stationery and a printer; four soundproof booths at ¥110 extra per 15 min; calls are allowed on the open floor. No sign-up: take a slip, sit, pay cashless on the way out.",
+    "headsUp": "Cashless only. No enforced quiet zone, so conversation and hammering keyboards are the standing complaint, and the unstaffed late hours can get strange.",
+    "vibe": 4,
+    "uniq": 3,
+    "food": 2,
+    "work": 4,
+    "why": {
+      "vibe": "Bright, clean and cafe-like enough that passers-by mistake it for a lounge.",
+      "uniq": "Walk-in-no-registration with try-before-you-buy HHKB keyboards is a distinct idea, if not a rare format.",
+      "food": "Self-serve coffee and soft drinks are included; nothing to eat.",
+      "work": "Outlets, monitors, printer, booths and near-24-hour access; the limitation is noise with no silent floor."
+    },
+    "quotes": [
+      {
+        "date": "2026-08",
+        "text": "店内は明るく綺麗で、オフィス作業空間にピッタリの空間でした。"
+      },
+      {
+        "date": "2026-07",
+        "text": "ただ、うるさい。とても。集中はできない。"
+      },
+      {
+        "date": "2026-05",
+        "text": "登録は不要で伝票だけもらって空いている席に座るだけでした。"
+      },
+      {
+        "date": "2026-05",
+        "text": "現金不可でした。"
+      }
+    ],
+    "summaryEn": "Reviewers rate the bright, clean room, the location and the frictionless walk-in; the recurring gripe is noise from groups, calls and loud typing, with requests for a proper silent floor.",
+    "signals": {
+      "outlets": "many",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "busy in the day; quieter at night",
+      "timeLimit": ""
+    }
+  },
+  "P56": {
+    "pitch": "Two cramped floors of BIZcomfort partition desks in a tired building on the residential side of Shibuya's south exit; 24-hour card access, drop-in on request.",
+    "tags": [
+      "PAID DROP-IN",
+      "24 HOURS",
+      "CHAIN",
+      "MEMBERS FIRST",
+      "CRAMPED"
+    ],
+    "priceLine": "SEE WEBSITE",
+    "order": [
+      "Drinks on 4F only; contents not confirmed",
+      "Bring your own; eating allowed on 4F only"
+    ],
+    "best": "5F work booths are the quiet option and often near-empty; the 4F cafe booths fill by 09:00 on weekdays with people on calls.",
+    "workNotes": "Card entry at the ground-floor door; 4F allows phone calls and eating, 5F allows neither; partitioned single booths and sofa seats; free printer; loan monitors are scarce.",
+    "headsUp": "One unisex toilet on 5F with queues; a shaky old lift; two 2026 reviews complain of body odour on 4F and a 2024 one of cup-noodle smells. Drop-in pricing is not published.",
+    "vibe": 2,
+    "uniq": 1,
+    "food": 1,
+    "work": 3,
+    "why": {
+      "vibe": "A 2.9-star floor with smell complaints, a frightening lift and a single shared toilet.",
+      "uniq": "Standard BIZcomfort chain fit-out with nothing to set it apart.",
+      "food": "A drinks corner on 4F is all that is mentioned.",
+      "work": "24-hour access and partitioned desks, but a full 4F by morning, few monitors and unpublished drop-in terms."
+    },
+    "quotes": [
+      {
+        "date": "2025-08",
+        "text": "4階は電話会議可能、5階は会議、食事不可。"
+      },
+      {
+        "date": "2026-09",
+        "text": "4階は匂いが汗臭く場所を移っても同じだと思ったので10分といられなかったです。"
+      },
+      {
+        "date": "2026-09",
+        "text": "トイレは5Fのみ。男女兼用"
+      },
+      {
+        "date": "2024-10",
+        "text": "カフェブース縮小により平日は朝9時から満席状態に。"
+      }
+    ],
+    "summaryEn": "A split verdict at 2.9 stars: the location, partitions and free printer are appreciated, but reviewers report smells, a scary lift, a single shared toilet, too few monitors, a full 4F by morning and noisy eaters.",
+    "signals": {
+      "outlets": "not mentioned",
+      "wifi": "not mentioned",
+      "laptop": "common",
+      "crowding": "4F full by 09:00 weekdays; 5F quiet",
+      "timeLimit": ""
+    }
+  },
+  "P57": {
+    "pitch": "Beach-themed basement coworking by Shibuya's new south exit: wave soundtrack, free drinks, borrowable monitors and a sociable events crowd; day rate only.",
+    "tags": [
+      "PAID DROP-IN",
+      "FREE DRINK BAR",
+      "PHONE BOOTHS",
+      "EVENTS",
+      "DAY RATE ONLY"
+    ],
+    "priceLine": "¥3,300/DAY",
+    "order": [
+      "Free drink server (contents not confirmed)"
+    ],
+    "best": "Full days, since there is no hourly rate. Check the current schedule first: Google now shows weekdays 10:00-21:00 and closed at weekends, and a mid-2026 review mentions a renovation period.",
+    "workNotes": "Open floor allows conversation, phone and web calls; soundproof TEL booths are free but booking-only; monitors and gadgets lent free; registration runs through LINE and one visitor found it slow. First visit is half price if you show the website.",
+    "headsUp": "Hours are in flux: the listing says 9-22 daily, Google says weekdays only, and the space may be mid-refit. Cool white lighting and the longer walk from the Hachiko side put some off.",
+    "vibe": 4,
+    "uniq": 4,
+    "food": 2,
+    "work": 4,
+    "why": {
+      "vibe": "Wave sounds, considerate regulars and staff who act on feedback; a 4.7 rating across 89 reviews backs it up.",
+      "uniq": "A beach concept with an events programme in a Shibuya basement is a genuinely distinct idea.",
+      "food": "A free drink server and nothing else stated.",
+      "work": "Calls allowed, free booths and gadgets; day-only pricing and uncertain opening days are the catch."
+    },
+    "quotes": [
+      {
+        "date": "2024-02",
+        "text": "波のBGMがこんなにも心地良いなんて。"
+      },
+      {
+        "date": "2026-02",
+        "text": "最新機器が利用し放題、ドリンクも飲み放題。"
+      },
+      {
+        "date": "2026-06",
+        "text": "いまはリニューアル期間中？"
+      },
+      {
+        "date": "2023-07",
+        "text": "ドロップインは1デイのみの3300円（時間単位があれば...）"
+      }
+    ],
+    "summaryEn": "Strong 4.7 rating: clean, friendly staff who act on surveys, free gadgets and drinks, and a calm floor outside event hours; the few grumbles are day-only pricing, LINE sign-up, cool lighting and distance from the main exits.",
+    "signals": {
+      "outlets": "not mentioned",
+      "wifi": "not mentioned",
+      "laptop": "common",
+      "crowding": "small and can be busy",
+      "timeLimit": ""
+    }
+  },
+  "P58": {
+    "pitch": "Bare-bones 7F coworking by the new south exit charging a flat ¥1,000 a day; self-styled cheapest in Shibuya, with reviews that stop in 2019.",
+    "tags": [
+      "PAID DROP-IN",
+      "BUDGET",
+      "NEAR STATION",
+      "UNVERIFIED"
+    ],
+    "priceLine": "¥1,000/DAY",
+    "order": [
+      "Drinks: not confirmed"
+    ],
+    "best": "Listed 10:00-19:00 including weekends; nothing recent enough to say when it is quiet.",
+    "workNotes": "Wi-Fi confirmed by a 2015 reviewer and Aeron chairs by another; outlets, booths, call rules and registration are not documented.",
+    "headsUp": "Google shows no hours and the newest review is from 2019, so confirm it still operates before going; the phone reportedly goes unanswered, and older reviews describe loud resident tenants.",
+    "vibe": 2,
+    "uniq": 2,
+    "food": 1,
+    "work": 3,
+    "why": {
+      "vibe": "A 2.9-star office floor whose most vivid review is about a rowdy tenant company.",
+      "uniq": "The only idea is being the cheapest; otherwise an anonymous rental floor.",
+      "food": "Nothing on drinks or food anywhere in the record.",
+      "work": "Wi-Fi and good chairs at a bargain rate, but 19:00 close, no hours on Google and no recent evidence it is open."
+    },
+    "quotes": [
+      {
+        "date": "2019-09",
+        "text": "とにかく電話が繋がらないです。。。"
+      },
+      {
+        "date": "2018-09",
+        "text": "ドロップインの料金も使いやすい価格帯です。"
+      },
+      {
+        "date": "2015-02",
+        "text": "アーロンチェアあり"
+      }
+    ],
+    "summaryEn": "Eight old reviews: cheap and usable on weekends, Aeron chairs, but a noisy contracted crowd and a phone nobody answers; nothing since 2019.",
+    "signals": {
+      "outlets": "not mentioned",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "",
+      "timeLimit": ""
+    }
+  },
+  "P59": {
+    "pitch": "Resonance's members-first Shibuya point with hexagonal dedicated desks and a six-seat private room; drop-in is not advertised, so ask before turning up.",
+    "tags": [
+      "PAID DROP-IN",
+      "MEMBERS FIRST",
+      "MEETING ROOMS",
+      "UNVERIFIED"
+    ],
+    "priceLine": "SEE WEBSITE",
+    "order": [
+      "Drinks: not confirmed"
+    ],
+    "best": "Reception is staffed 10:00-18:00 while the floor is listed as open 6:00-22:00, so a first visit belongs inside reception hours.",
+    "workNotes": "Free small-volume printing, hexagonal fixed desks, a six-person private room and hourly meeting rooms per the listing; outlets, Wi-Fi and call rules are not documented.",
+    "headsUp": "No Google listing matched and there are no reviews; the listing does not confirm drop-in at all. Treat it as a rental-desk operation until told otherwise.",
+    "vibe": 3,
+    "uniq": 3,
+    "food": 1,
+    "work": 3,
+    "why": {
+      "vibe": "Nothing to judge beyond a tidy listing; assumed clean and unremarkable.",
+      "uniq": "Hexagonal dedicated desks are at least a specific idea.",
+      "food": "No drinks or food mentioned anywhere.",
+      "work": "Printing and rooms exist, but no confirmed drop-in, no Wi-Fi or outlet evidence and reception closes at 18:00."
+    },
+    "quotes": [],
+    "summaryEn": "No recent Google reviews to draw on.",
+    "signals": {
+      "outlets": "not mentioned",
+      "wifi": "not mentioned",
+      "laptop": "common",
+      "crowding": "",
+      "timeLimit": ""
+    }
+  },
+  "P60": {
+    "pitch": "Tsutaya's all-inclusive lounge over Shibuya Crossing: unlimited snacks, soft drinks and alcohol on the clock, plus outlets, magazines and meeting rooms.",
+    "tags": [
+      "PAID DROP-IN",
+      "FREE DRINK BAR",
+      "CHAIN",
+      "NEAR STATION",
+      "PRICEY",
+      "VIEW"
+    ],
+    "priceLine": "¥1,650-1,870/H · ¥4,510-6,600/DAY",
+    "order": [
+      "Unlimited snacks, soft drinks and alcohol included",
+      "Frozen meals (often sold out by mid-morning)"
+    ],
+    "best": "Window seats over the crossing are the draw and go first; one reviewer calls it never too crowded. Google says it opens 08:00, so mornings are the calm stretch.",
+    "workNotes": "Outlets at every seat, stable Wi-Fi, bookable rooms suited to online meetings; online booking and tablet check-in with no lengthy registration; over 100 magazines free to read.",
+    "headsUp": "Sources disagree on the address (Scramble Square 11F versus Tsutaya 4F) and on price, which has risen; regulars complain the lounge shrank to one floor with thinner snack and frozen-food stock.",
+    "vibe": 4,
+    "uniq": 4,
+    "food": 3,
+    "work": 4,
+    "why": {
+      "vibe": "Modern, clean and comfortable with the crossing below the window; foreign visitors rave, locals grumble about decline.",
+      "uniq": "Unlimited snacks and alcohol billed by the hour above Shibuya Crossing is its own thing.",
+      "food": "Snacks, drinks and alcohol are real, but stock runs thin and frozen meals sell out early.",
+      "work": "Outlets everywhere, Wi-Fi, meeting rooms and 08-23 hours; the price makes a full day an expensive habit."
+    },
+    "quotes": [
+      {
+        "date": "2026-08",
+        "text": "ネットで予約ができ、タブレットでチェックインできるので凄く簡単にできてびっくりしました！"
+      },
+      {
+        "date": "2026-09",
+        "text": "スナックの量や冷凍食品の品揃えが減っていて大変残念"
+      },
+      {
+        "date": "2026-07",
+        "text": "午前10時半に行ったら全部品切れで、食べられませんでした。"
+      }
+    ],
+    "summaryEn": "Tourists and remote workers praise the view, clean modern room, easy booking and the unlimited food-and-drink concept; Japanese regulars complain of price rises, a shrunken footprint and snacks or frozen meals running out early.",
+    "signals": {
+      "outlets": "many",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "never too crowded, per one review",
+      "timeLimit": ""
+    }
+  },
+  "P61": {
+    "pitch": "Two JR phone-booth pods inside Shibuya's Shin-Minami ticket gate: a monitor, a socket and air-con for a 15-minute call between trains.",
+    "tags": [
+      "PAID DROP-IN",
+      "PHONE BOOTHS",
+      "NEAR STATION",
+      "SHORT STAY"
+    ],
+    "priceLine": "¥330/15 MIN",
+    "order": [
+      "Nothing; bring a drink from the concourse"
+    ],
+    "best": "Use it as intended: a call or a quick edit while changing trains, 07:00-21:30. Only two pods, so commuter peaks may find both taken.",
+    "workNotes": "Free power, Wi-Fi and an HDMI monitor in a sealed single booth; billed per 15 minutes; one source says walk-in without registration or booking works.",
+    "headsUp": "You need to be inside the JR gates; the pod is tight for larger builds, and the rate rose from ¥275 to ¥330 in May 2025.",
+    "vibe": 2,
+    "uniq": 3,
+    "food": 1,
+    "work": 3,
+    "why": {
+      "vibe": "A sealed pod on a station concourse; functional and nothing more.",
+      "uniq": "A rentable booth inside the ticket gate is a distinct idea, even if JR has planted them everywhere.",
+      "food": "Nothing inside; concourse kiosks only.",
+      "work": "Power, Wi-Fi and a monitor, but 15-minute billing, two pods and no room to spread out."
+    },
+    "quotes": [],
+    "summaryEn": "No recent Google reviews to draw on.",
+    "signals": {
+      "outlets": "some",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "two booths only",
+      "timeLimit": "15-minute blocks"
+    }
+  },
+  "P62": {
+    "pitch": "Nex's THE HUB rental-office floors on Shibuya 3-chome with a cheap by-the-half-hour drop-in: silent 4F, talkative 5F, drinks and weekday snacks.",
+    "tags": [
+      "PAID DROP-IN",
+      "CHAIN",
+      "FREE DRINK BAR",
+      "PHONE BOOTHS",
+      "QUIET",
+      "BUDGET"
+    ],
+    "priceLine": "¥220/30 MIN · NO DAY RATE",
+    "order": [
+      "Free drink server (coffee, tea)",
+      "Free snacks on weekdays; not restocked over holidays"
+    ],
+    "best": "Weekends and holidays leave the silent 4F almost empty, which suits exam study if you can stand the solitude; weekdays are busier on the conversational 5F.",
+    "workNotes": "Outlets and Wi-Fi throughout, loan monitors, bookable phone booths and a free meeting corner; calls and eating on 5F, silence on 4F. Entry and exit only while reception is staffed, so mind the lunch break; hours are weekdays 10-19 per one source and 7-23 daily per Google.",
+    "headsUp": "No day cap, so a long day adds up; tables are cleaned by users with wet wipes and can be grubby; over long holidays the drink server may sit empty.",
+    "vibe": 3,
+    "uniq": 2,
+    "food": 2,
+    "work": 4,
+    "why": {
+      "vibe": "Clean, simple office floors that reviewers find pleasant; grubby tables are the only knock on the room.",
+      "uniq": "A standard rental-office chain with a drop-in tier bolted on.",
+      "food": "Free drinks and weekday snacks, unreliably restocked.",
+      "work": "Outlets, Wi-Fi, monitors, booths and a silent floor at a low rate; staffed-hours-only access and no day cap are the limits."
+    },
+    "quotes": [
+      {
+        "date": "2026-03",
+        "text": "5分刻みの30分単位で利用できて、料金も安くて使いやすかったです。"
+      },
+      {
+        "date": "2025-05",
+        "text": "土日祝日はめちゃくちゃ人が少ない。"
+      },
+      {
+        "date": "2026-09",
+        "text": "ドリンクサーバーの中身が補充されず、何も飲めないことも珍しくありません。"
+      },
+      {
+        "date": "2026-09",
+        "text": "自習室が相次いで閉業している渋谷エリアではおそらく最もコスパの高い場所ではあると思います。"
+      }
+    ],
+    "summaryEn": "Reviewers call it the best value study desk left in Shibuya: cheap increments, easy booth booking, monitors and drinks; downsides are grubby tables, empty drink servers over holidays and a deserted quiet floor at weekends.",
+    "signals": {
+      "outlets": "many",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "5F busier on weekdays; 4F near-empty at weekends",
+      "timeLimit": ""
+    }
+  },
+  "P63": {
+    "pitch": "coin space's flagship inside Mark City West 4F, sharing a door with the tourist office; no registration, ten-minute billing, calls allowed.",
+    "tags": [
+      "PAID DROP-IN",
+      "CHAIN",
+      "NEAR STATION",
+      "NO REGISTRATION",
+      "CALLS OK"
+    ],
+    "priceLine": "¥110/10 MIN · ¥4,000/DAY",
+    "order": [
+      "Water server only; bring your own food and drink"
+    ],
+    "best": "Mornings, when one reviewer found it empty enough for a web call; the day cap is ¥2,500 until 19:00, then a separate ¥1,500 night cap to 23:00.",
+    "workNotes": "Outlets at all 44 seats, Wi-Fi, free phone-charger loan, monitors for ¥500; web and phone calls permitted; individual booths and counter seats; walk in with no sign-up.",
+    "headsUp": "Dearer than other branches and dearer than a cafe over a full day; the entrance doubles as the Shibuya tourist association counter, with the desks up a flight of stairs.",
+    "vibe": 3,
+    "uniq": 2,
+    "food": 1,
+    "work": 4,
+    "why": {
+      "vibe": "White, bright and clean, but small and tucked behind a tourist information counter.",
+      "uniq": "A chain coin-op floor whose only quirk is the shared tourist-office entrance.",
+      "food": "A water server and permission to bring your own.",
+      "work": "Every seat has power, calls are fine and hours run 9-23; the size and the full-day cost are the limitations."
+    },
+    "quotes": [
+      {
+        "date": "2026-06",
+        "text": "10分110円、安くていいですね。"
+      },
+      {
+        "date": "2026-05",
+        "text": "事前の面倒な手続きがなく、ふらっとドロップインできる手軽さも助かります。"
+      },
+      {
+        "date": "2026-04",
+        "text": "登録不要で使えるのが最大の強みで"
+      }
+    ],
+    "summaryEn": "Praised for location, no-fuss walk-in, full outlets and call-friendly rules; noted as small and pricier than other branches, better for an hour or two than a whole day.",
+    "signals": {
+      "outlets": "many",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "quiet in the mornings",
+      "timeLimit": ""
+    }
+  },
+  "P64": {
+    "pitch": "Cafe-styled 5F coworking opposite PARCO with a wide view over Shibuya; weekday-only hourly drop-in, friendly staff, water but no coffee.",
+    "tags": [
+      "PAID DROP-IN",
+      "VIEW",
+      "NEAR STATION",
+      "WEEKDAYS ONLY",
+      "MEETING ROOMS"
+    ],
+    "priceLine": "¥770/H",
+    "order": [
+      "Water server; one listing claims free drinks but a regular reports water only"
+    ],
+    "best": "The big central table is the one to work at; the low sofa tables strain the back. Weekdays 10:00-19:00 only.",
+    "workNotes": "Outlets at every seat plus loan power strips; Wi-Fi was weak in 2024 but fixed by 2025; two bookable meeting rooms usually free; registration is quick.",
+    "headsUp": "Closed Saturday and Sunday and shuts at 19:00. One review objects to communal cups being rinsed and reused and to a grimy copier corner.",
+    "vibe": 4,
+    "uniq": 3,
+    "food": 1,
+    "work": 4,
+    "why": {
+      "vibe": "A 4.7 rating over 152 reviews, mostly about the view and a clean, comfortable room.",
+      "uniq": "Cafe-style seating with a panoramic outlook is a distinct pitch among Shibuya's office floors.",
+      "food": "A water server and nothing else, whatever the listing says.",
+      "work": "All-seat outlets, fixed Wi-Fi and meeting rooms; weekday 10-19 hours and low tables hold it back."
+    },
+    "quotes": [
+      {
+        "date": "2026-04",
+        "text": "渋谷の街並みを一望できて快適な空間"
+      },
+      {
+        "date": "2025-09",
+        "text": "真ん中のでっかいテーブルが一番作業しやすい。"
+      },
+      {
+        "date": "2025-09",
+        "text": "ウォーターサーバーがあります！"
+      },
+      {
+        "date": "2025-07",
+        "text": "コピー機周辺が汚い。"
+      }
+    ],
+    "summaryEn": "Overwhelmingly positive: the view, clean room, easy sign-up, fair price and helpful staff; caveats are low tables awkward for laptops, a past Wi-Fi wobble and one complaint about hygiene.",
+    "signals": {
+      "outlets": "many",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "",
+      "timeLimit": ""
+    }
+  },
+  "P65": {
+    "pitch": "Airline-lounge styled members' club on the 17th floor of Fukuras, terrace included; polished for client meetings, awkward for a casual drop-in.",
+    "tags": [
+      "PAID DROP-IN",
+      "MEMBERS FIRST",
+      "CHAIN",
+      "VIEW",
+      "NEAR STATION"
+    ],
+    "priceLine": "¥3,300/DAY (LISTING CONFLICT)",
+    "order": [
+      "Drinks: not confirmed"
+    ],
+    "best": "Sunday 10:00-18:00 is the odd bonus, since Saturday is closed; the terrace and even the toilet corridor give the view. Bring earphones for a call-heavy floor.",
+    "workNotes": "Booth seats at no extra charge, and outlets plus Wi-Fi even on the terrace; weekday hours run to 21:00 or 22:00 depending on source. The listing says both no drop-in and ¥3,300 all-day, so ring ahead.",
+    "headsUp": "Closed Saturdays; only two lifts serve the floor so queues form; contracted companies dominate and one visitor felt like a squatter in someone else's office.",
+    "vibe": 4,
+    "uniq": 3,
+    "food": 1,
+    "work": 3,
+    "why": {
+      "vibe": "High-floor views, a terrace and a weighty finish that reviewers say impresses clients.",
+      "uniq": "The airport-lounge conceit with uniformed reception is a recognisable idea, if a slightly silly one.",
+      "food": "Nothing about drinks or food in the record.",
+      "work": "Outlets and Wi-Fi even outdoors, but a Saturday closure, constant callers and contradictory drop-in terms."
+    },
+    "quotes": [
+      {
+        "date": "2026-09",
+        "text": "土曜日が定休日なのが最大の欠点。"
+      },
+      {
+        "date": "2025-09",
+        "text": "17階なので眺めがいいです。"
+      },
+      {
+        "date": "2023-05",
+        "text": "ドロップインで気軽に利用するオープンな雰囲気ではないと感じました。"
+      },
+      {
+        "date": "2025-10",
+        "text": "通話の人が結構が多いので、イヤホンとかないと集中できないのでは。"
+      }
+    ],
+    "summaryEn": "The view, terrace and business-lounge finish earn praise for client meetings; complaints are the Saturday closure, crowded lifts, constant phone calls and a members-only feel that leaves drop-ins uneasy.",
+    "signals": {
+      "outlets": "some",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "call-heavy",
+      "timeLimit": ""
+    }
+  },
+  "P66": {
+    "pitch": "Regus serviced offices on the 16th and 22nd floors of Mark City West; a lounge with a Shibuya view for tenants and their guests, not a walk-in desk.",
+    "tags": [
+      "PAID DROP-IN",
+      "MEMBERS FIRST",
+      "CHAIN",
+      "VIEW",
+      "NO WALK-IN"
+    ],
+    "priceLine": "SEE WEBSITE",
+    "order": [
+      "Drinks: not confirmed"
+    ],
+    "best": "Weekdays 09:00-18:00 only, and only with a membership or a booked meeting room; the lounge view is the reason tenants stay.",
+    "workNotes": "Rental offices, two meeting rooms and a members' lounge; the listing says no drop-in, so outlets, Wi-Fi and call rules are moot for a visitor.",
+    "headsUp": "Not a drop-in venue; the listing says so outright. One 2026 review alleges a deposit unreturned after 40 days, and another found the entrance hard to find.",
+    "vibe": 4,
+    "uniq": 1,
+    "food": 1,
+    "work": 3,
+    "why": {
+      "vibe": "Spacious, high up, station-linked and staffed; tenants describe a genuinely nice place to bring clients.",
+      "uniq": "A Regus centre is the definition of a generic chain floor.",
+      "food": "Nothing on drinks or food in the record.",
+      "work": "Office-hours only and closed to walk-ins; usable only as a member or meeting-room booker."
+    },
+    "quotes": [
+      {
+        "date": "2024-09",
+        "text": "眺望よく来客の方にも喜んでいただき、ラウンジや会議室で気持ちよく仕事ができます。"
+      },
+      {
+        "date": "2024-05",
+        "text": "とにかく広い。渋谷駅直通のためフレキシブルに公私を分けられる。"
+      },
+      {
+        "date": "2026-08",
+        "text": "着手金が40日以上経っても返金されない。"
+      }
+    ],
+    "summaryEn": "Tenants like the view, space, station link and staffed reception; the low scores are about contract money not being refunded and a confusing entrance.",
+    "signals": {
+      "outlets": "not mentioned",
+      "wifi": "not mentioned",
+      "laptop": "common",
+      "crowding": "",
+      "timeLimit": ""
+    }
+  },
+  "P67": {
+    "pitch": "Small coworking floor run by a virtual-office operator near Tower Records; cheap half-hour billing and a phone box, but office hours only.",
+    "tags": [
+      "PAID DROP-IN",
+      "CHAIN",
+      "PHONE BOOTHS",
+      "BUDGET",
+      "WEEKDAYS ONLY"
+    ],
+    "priceLine": "¥220/30 MIN · ¥2,750/DAY",
+    "order": [
+      "Drinks: not confirmed"
+    ],
+    "best": "Weekdays 09:00-18:00 and nothing else; both reviewers wanted evenings and weekends and did not get them.",
+    "workNotes": "Phone box and bookable meeting room; business registration available; outlets and Wi-Fi not documented in the brief; the floor is described as not large.",
+    "headsUp": "Shut evenings and weekends; one reviewer found reception brusque. Only two reviews, so thin evidence.",
+    "vibe": 3,
+    "uniq": 2,
+    "food": 1,
+    "work": 3,
+    "why": {
+      "vibe": "Described as usable and no more; a small office floor at three stars.",
+      "uniq": "A virtual-office firm's side desk; nothing distinctive.",
+      "food": "No drinks or food mentioned.",
+      "work": "A phone box and a day cap, but 9-18 weekday hours and no evidence on outlets or Wi-Fi."
+    },
+    "quotes": [
+      {
+        "date": "2026-09",
+        "text": "コワーキングスペースは使いやすいですが、会議室も含めて土日も利用できると有難い。"
+      },
+      {
+        "date": "2026-01",
+        "text": "土日も使えたらよかったです。"
+      }
+    ],
+    "summaryEn": "Two three-star reviews: the desks are fine, but both users want weekend and evening opening and one found reception could be more courteous.",
+    "signals": {
+      "outlets": "not mentioned",
+      "wifi": "not mentioned",
+      "laptop": "common",
+      "crowding": "",
+      "timeLimit": ""
+    }
+  },
+  "P68": {
+    "pitch": "Kaikatsu CLUB net cafe on floors 2-4 of a Center-gai building: locked private booths, drink bar and soft-serve, 24 hours, at central-Shibuya prices.",
+    "tags": [
+      "PAID DROP-IN",
+      "24 HOURS",
+      "CHAIN",
+      "PRIVATE BOOTHS",
+      "FREE DRINK BAR",
+      "PRICEY"
+    ],
+    "priceLine": "¥850/H WEEKDAYS",
+    "order": [
+      "Free drink bar and soft-serve ice cream"
+    ],
+    "best": "Off-peak weekday daytime for a booth with a door; check the app for vacancies but expect it to be wrong on busy nights.",
+    "workNotes": "Locked private rooms with Wi-Fi and power; membership card and ID on first visit as at every Kaikatsu branch; copier and towel loan on site.",
+    "headsUp": "Fridays are billed at the holiday rate, which surprised one reviewer with ¥1,220 for under an hour; the app has shown vacancies when there were none; the manga shelf is thin.",
+    "vibe": 2,
+    "uniq": 2,
+    "food": 2,
+    "work": 4,
+    "why": {
+      "vibe": "Clean and well kept, but a windowless net-cafe cubicle at 3.4 stars is still a cubicle.",
+      "uniq": "A standard Kaikatsu floor; the private-room format is the chain's, not this branch's.",
+      "food": "Free drink bar and soft-serve; the chain's food menu is not confirmed in the record.",
+      "work": "A lockable room with power and Wi-Fi around the clock; the weekend-and-Friday pricing is the limitation."
+    },
+    "quotes": [
+      {
+        "date": "2026-09",
+        "text": "金曜日は休日料金なんで！"
+      },
+      {
+        "date": "2026-09",
+        "text": "綺麗でドリンクバーやソフトクリームもあり、バスタオル貸出付で"
+      },
+      {
+        "date": "2026-08",
+        "text": "利用時間の割に料金が高すぎる。"
+      },
+      {
+        "date": "2026-08",
+        "text": "アプリで空室確認し来店したが空室無し。"
+      }
+    ],
+    "summaryEn": "Clean, well staffed, with drink bar, soft-serve and towels for overnighters; the loud complaint is price, higher than other Kaikatsu branches with Fridays billed as holidays, plus an unreliable vacancy app.",
+    "signals": {
+      "outlets": "many",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "often full at night",
+      "timeLimit": ""
+    }
+  }
+}

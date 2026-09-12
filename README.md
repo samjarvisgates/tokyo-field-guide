@@ -7,7 +7,7 @@ Live: https://samjarvisgates.github.io/tokyo-field-guide/
 ## What's in it
 
 - `index.html` — the whole app (vanilla JS, MapLibre GL from cdnjs with OpenFreeMap's Liberty style, Google Fonts). Desktop ≥1024px: index + map + unfolding plate. Below that: phone screens (index, map, entry, setting sheet).
-- `data.json` — generated from `tokyo_workspots_1.xlsx` (`priority` + `phase2_signals` tabs) by `build/build.py`.
+- `data.json` — generated from `tokyo_workspots_1.xlsx` (`priority` + `phase2_signals` tabs for the 197 cafés, `B_paid` for the 85 paid drop-in spaces) by `build/build.py`. Paid spaces get their Google data from `build/paid_google.json`, their recent reviews from `build/paid_reviews.json`, and their written entries and 1–5 scores from `build/paid_editorial.json`.
 - `photos/<id>.jpg` — each place's Google Maps main photo, 420px; `photos/<id>-N.jpg` — up to five more per place (from `build/images.json`, a Google Maps scrape with images on). Both fetched by `build/fetch.py`.
 - `build/apify.json` — coordinates and addresses from the phase-2 Google Maps scrape, keyed by place ID. `build/geocode_extra.json` — four hand-placed pins the scrape didn't cover.
 
@@ -22,7 +22,7 @@ base  = (0.70·mix + 0.30·crowd) × 2                     0–10 scale
 score = 6.9 + (base − 6.9) × (0.55 + 0.45·confidence)   confidence = reviews / (reviews + 120)
 ```
 
-Few reviews hold a place near the middle at every setting; rows under 100 Google reviews carry a THIN EVIDENCE mark and the SOLID EVIDENCE chip hides them. ▲/▼ deltas compare against the 3·3·3 edition. The edition, the CAFÉS ONLY / SOLID EVIDENCE chips and an open plate live in the URL hash (`#w5v3f3c/038`).
+Paid drop-in spaces (ids `P01`–`P85`) sit in the same order; the DROP-IN SPACES chip hides them. Few reviews hold a place near the middle at every setting; rows under 100 Google reviews carry a THIN EVIDENCE mark and the SOLID EVIDENCE chip hides them. ▲/▼ deltas compare against the 3·3·3 edition. The edition, the CAFÉS ONLY / SOLID EVIDENCE chips and an open plate live in the URL hash (`#w5v3f3c/038`).
 
 "Open now" is computed live in Japan time from the sheet's hours; places whose hours could not be parsed say HOURS UNLISTED and are never shown as open.
 

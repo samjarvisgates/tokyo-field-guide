@@ -1,0 +1,860 @@
+{
+  "P01": {
+    "pitch": "Owner-run share office a few minutes from Ueno; drop-in desks by the half hour in a bright lounge, with private offices and a members' community upstairs.",
+    "tags": [
+      "PAID DROP-IN",
+      "OWNER-RUN",
+      "NEAR STATION",
+      "MEMBERS FIRST",
+      "QUIET"
+    ],
+    "priceLine": "¥300/30 MIN",
+    "order": [
+      "Drinks: not confirmed"
+    ],
+    "best": "Reviews describe the open lounge as the place for spreading out; the quiet low-price study area suits exam-style work. The 24-hour listing applies to office tenants, so treat drop-in as daytime.",
+    "workNotes": "Wi-Fi and outlets stated; reviewers call the connection good. Online registration issues an app key for the auto-locked door, and day-use check-in worked without staff. Meeting rooms are shared with the sister building 15 seconds away.",
+    "headsUp": "Google lists the 2nd building, and the 24-hour access is for rental-office contracts only, not drop-in. Owner openly says it is not aiming to be the cheapest.",
+    "vibe": 3,
+    "uniq": 3,
+    "food": 1,
+    "work": 4,
+    "why": {
+      "vibe": "Reviewers call the shared floor open and clean, but it is an office lounge rather than a room you would seek out.",
+      "uniq": "An owner who holds the whole building, introduces members to each other and tweaks the place himself is rarer than the chain floors nearby.",
+      "food": "No drink service is mentioned anywhere in the claims or reviews.",
+      "work": "Wi-Fi, outlets and app-key entry with no stated limit, but drop-in hours are not the 24-hour ones advertised."
+    },
+    "quotes": [
+      {
+        "date": "2025-07",
+        "text": "お値打ちです。"
+      },
+      {
+        "date": "2022-07",
+        "text": "オンライン上で登録からキーの発行、入室、利用までスムーズでした。"
+      },
+      {
+        "date": "2022-07",
+        "text": "ネット環境は良好。いい感じです。"
+      },
+      {
+        "date": "2022-04",
+        "text": "低価格で静かに作業ができるスペースや固定席のメニューもあります。"
+      }
+    ],
+    "summaryEn": "A small set of very positive reviews, mostly from private-office tenants, praising the hands-on owner, the location and smooth app-based entry; the only caveat is that it is not the cheapest option and the perks favour members.",
+    "signals": {
+      "outlets": "some",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "quiet, member-heavy",
+      "timeLimit": ""
+    }
+  },
+  "P02": {
+    "pitch": "Big 90-seat coworking floor run by web agency LIG in a back street south of Ueno; cheap by the half hour with free drinks, but run rather loosely.",
+    "tags": [
+      "PAID DROP-IN",
+      "CHAIN",
+      "FREE DRINK BAR",
+      "MEETING ROOMS",
+      "CALLS OK"
+    ],
+    "priceLine": "¥330/30 MIN · ¥2,750/DAY",
+    "order": [
+      "Free drink bar and water server (sometimes empty)",
+      "Microwave available for your own food"
+    ],
+    "best": "Reviewers who go regularly describe it as quiet and clean; avoid sitting near the open-space groups if you have a call, and give yourself ten extra minutes for the QR entry on a first visit.",
+    "workNotes": "Wi-Fi, outlets, lockers, copier and bookable private booths; QR-code self check-in and check-out. Remote calls happen in the open space, so it is not a silent room. One source says drop-in is 10:00-19:00 only, another says 24-hour access.",
+    "headsUp": "Entrance is hard to find and the 2F booths are unsigned; reviewers report the posted Wi-Fi password being wrong and staff being hard to identify. The 24-hour and 10-19 claims conflict, so check before an evening visit.",
+    "vibe": 3,
+    "uniq": 2,
+    "food": 2,
+    "work": 4,
+    "why": {
+      "vibe": "Clean and quiet enough to concentrate, but a large corporate floor with lax housekeeping.",
+      "uniq": "One of a national chain of ii Office floors; the LIG tie-in does not change much for a drop-in.",
+      "food": "Free drinks and a water server, occasionally unreplenished.",
+      "work": "Cheap all-day rate with outlets, Wi-Fi and booths, marred by noisy open-space calls and wobbly operations."
+    },
+    "quotes": [
+      {
+        "date": "2026-06",
+        "text": "入口が分かりにくい以外は、静かな環境でした。"
+      },
+      {
+        "date": "2025-12",
+        "text": "Wi-Fiのパスワードが違っていたり、自由に使える電子レンジが足元にあったりと運営は大雑把です。"
+      },
+      {
+        "date": "2025-12",
+        "text": "綺麗ですし集中もできますが、たまにウォーターサーバーの水が切れていたり、チェックアウト用のQRがなかったりします。"
+      }
+    ],
+    "summaryEn": "Regulars find it clean, quiet and cheap; complaints centre on the confusing entrance and QR check-in, loud video calls in the open space bleeding into booth meetings, and small operational lapses such as wrong Wi-Fi passwords and an empty water server.",
+    "signals": {
+      "outlets": "some",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "mixed; noisy groups at times",
+      "timeLimit": "day pass max 15 hours"
+    }
+  },
+  "P03": {
+    "pitch": "Karaoke chain Pasela rents its private rooms as daytime work booths on the 4F opposite Ueno Park; a room of your own for calls, drink bar included.",
+    "tags": [
+      "PAID DROP-IN",
+      "KARAOKE BOOTHS",
+      "FREE DRINK BAR",
+      "CHAIN",
+      "CALLS OK",
+      "PRIVATE ROOM"
+    ],
+    "priceLine": "¥1,400/2H · ¥4,200 CAP",
+    "order": [
+      "Drink bar included with the coworking plan",
+      "Karaoke menu to order: honey toast, lunch sets"
+    ],
+    "best": "Weekday daytime, when the rooms are otherwise empty; coworking runs 9:30-20:00 while the karaoke floor goes on to 05:00. Reception gets busy from around 20:00, so arrive early or book.",
+    "workNotes": "Private room with Wi-Fi and a copier; you can talk, take calls and run meetings freely. Two-hour minimum, then priced by block up to a ¥4,200 daily cap. No outlets stated in the claims, though karaoke rooms generally have one.",
+    "headsUp": "The Google listing and reviews are for the karaoke venue, not the work plan. Soundproofing is described as ordinary, so a loud neighbour can be heard; the facilities are a little dated but kept clean.",
+    "vibe": 3,
+    "uniq": 4,
+    "food": 3,
+    "work": 4,
+    "why": {
+      "vibe": "A clean but slightly worn karaoke room with a big screen is comfortable rather than lovely.",
+      "uniq": "A private karaoke room with a drink bar as your office is a genuinely different idea in a district of office floors.",
+      "food": "Drink bar plus a full karaoke kitchen menu, from lunch sets to the famous honey toast.",
+      "work": "Private, calls unrestricted and a fair day cap; loses a point for the 20:00 finish and the crowded reception."
+    },
+    "quotes": [
+      {
+        "date": "2026-08",
+        "text": "私が使った部屋は隣室の音が少し気になりましたが、部屋の防音性能は通常レベルなので"
+      },
+      {
+        "date": "2026-07",
+        "text": "ファシリティは少〜し古くなってきましたが、清潔に保たれています。"
+      },
+      {
+        "date": "2026-06",
+        "text": "この時間帯は受付付近がかなり混雑しています。"
+      }
+    ],
+    "summaryEn": "Reviews cover the karaoke business: polite staff, generous honey toast and lunch deals, family-friendly rooms, with grumbles about average sound quality, an outdated song app and evening queues at reception. None mention the coworking plan.",
+    "signals": {
+      "outlets": "not mentioned",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "reception busy after 20:00",
+      "timeLimit": "2-hour minimum block"
+    }
+  },
+  "P04": {
+    "pitch": "Café-plus-lounge from the (tefu) group by Shimokitazawa station: barista café downstairs, two-storey work lounge with unlimited drinks and call booths.",
+    "tags": [
+      "PAID DROP-IN",
+      "FREE DRINK BAR",
+      "PHONE BOOTHS",
+      "CHAIN",
+      "NEAR STATION",
+      "CAFÉ"
+    ],
+    "priceLine": "¥990/H · ¥3,300/DAY",
+    "order": [
+      "Lounge: unlimited barista drinks and snacks on the plan",
+      "Café counter: latte, grilled cheese, evening mains around ¥1,600 with a drink"
+    ],
+    "best": "Weekday mornings just after the 09:00 opening, when the café is empty while the station Starbucks is packed; the window sofa seats have outlets. Saturdays are crowded and groups struggle for seats.",
+    "workNotes": "Wi-Fi and outlets throughout, video-call booths in the lounge, no time limit on the day plan. The café side may impose a one-hour limit when busy; the lounge is priced by the hour or as a day pass.",
+    "headsUp": "One reviewer got a brusque response asking about lounge plans at reception; another waited 30 minutes for a sandwich. Café seating is not the same as the paid lounge, so check which you are paying for.",
+    "vibe": 4,
+    "uniq": 4,
+    "food": 4,
+    "work": 4,
+    "why": {
+      "vibe": "Reviewers praise the interior, the chair comfort and the calm, with a cinema next door.",
+      "uniq": "A café, a paid lounge and a screening room under one roof is a distinct model that the group repeats in Jiyugaoka and Yoyogi-Uehara.",
+      "food": "Proper barista coffee and cooked food on the café side, unlimited drinks on the lounge side.",
+      "work": "Everything a day desk needs, but weekend crowds and the café-side hour limit keep it off full marks."
+    },
+    "quotes": [
+      {
+        "date": "2026-08",
+        "text": "混んでると1時間で退店になるので注意です"
+      },
+      {
+        "date": "2026-08",
+        "text": "窓際のソファ席にもコンセントがありました"
+      },
+      {
+        "date": "2026-08",
+        "text": "カフェの半分はラウンジで、1時間990円で飲み食べ放題らしいです！"
+      },
+      {
+        "date": "2026-08",
+        "text": "受付でラウンジのプランについて聞いたら、男性の方にすごく面倒くさそうに対応され"
+      }
+    ],
+    "summaryEn": "Praise for the coffee, the interior and a cheap all-day lounge with fast Wi-Fi and call booths; complaints about weekend crowding, slow food service and one unfriendly reception encounter.",
+    "signals": {
+      "outlets": "many",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "busy weekends; quiet weekday mornings",
+      "timeLimit": "café side 1 hour when busy"
+    }
+  },
+  "P05": {
+    "pitch": "Nomura's H1T satellite-office chain, 7F of an office block one minute from Nakameguro station; open desks and glass booths booked by the hour through Instabase.",
+    "tags": [
+      "PAID DROP-IN",
+      "CHAIN",
+      "NEAR STATION",
+      "FREE DRINK BAR",
+      "BOOTHS"
+    ],
+    "priceLine": "¥825/H",
+    "order": [
+      "Free Morinaga paper-pack drinks, yoghurt and pudding (often out of stock)",
+      "Water server, refilled by users"
+    ],
+    "best": "One reviewer found it unexpectedly empty; another found the private booths nearly full on a weekday afternoon. Restocking was spotted on Tuesday and Wednesday after lunch. Open 08:30-20:00 daily.",
+    "workNotes": "Wi-Fi and outlets; wall-mounted monitors at eye level in the L booths, a sofa-type R booth, meeting rooms. Voices carry across the floor, so video calls from open seats are not advised. Booking runs through Instabase rather than walk-in.",
+    "headsUp": "The free drink shelf is frequently empty and the frosted booth glass is more see-through than it looks. Toilets are outside the space by the lift.",
+    "vibe": 3,
+    "uniq": 2,
+    "food": 2,
+    "work": 4,
+    "why": {
+      "vibe": "A clean, standard H1T fit-out with booths and monitors; nothing to linger for.",
+      "uniq": "One of dozens of H1T sites; the Morinaga drink tie-in is the only local quirk.",
+      "food": "Free packaged drinks and snacks when stocked, which is not always.",
+      "work": "Good booths and hardware near the station, but noise carries and you must book through a third-party app."
+    },
+    "quotes": [
+      {
+        "date": "2025-11",
+        "text": "他のH1Tと比べて、利用者の声や作業音がよく聞こえ、Web会議や電話をするには適していないと感じます。"
+      },
+      {
+        "date": "2025-11",
+        "text": "平日午後に利用しましたが、個室部屋はほぼ満室。"
+      },
+      {
+        "date": "2025-08",
+        "text": "駅近だし意外とすいていておすすめ。"
+      },
+      {
+        "date": "2024-03",
+        "text": "会議室、１人用個室、オープン席のあるタイプ。駅から近いです。"
+      }
+    ],
+    "summaryEn": "Reviewers like the station access, the booth variety and the monitors, but report that voices carry more than at other H1T branches and that the free Morinaga drinks are often gone.",
+    "signals": {
+      "outlets": "some",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "booths fill weekday afternoons",
+      "timeLimit": ""
+    }
+  },
+  "P06": {
+    "pitch": "TEPCO-backed SoloTime branch on the 4F of an insurance building at Nakameguro; hourly open seats and phone booths with long weekday hours, booked via Instabase.",
+    "tags": [
+      "PAID DROP-IN",
+      "CHAIN",
+      "PHONE BOOTHS",
+      "FREE DRINK BAR",
+      "LONG HOURS",
+      "NEAR STATION"
+    ],
+    "priceLine": "¥990/H",
+    "order": [
+      "Free vending machine drinks, ice cream and snacks"
+    ],
+    "best": "Weekdays run 07:00-24:00, so early starts and late finishes are the draw; weekends close at 21:00. No reviews describe crowding, so assume a quiet office floor.",
+    "workNotes": "Wi-Fi, outlets and phone booths stated; open seats from ¥990 an hour through Instabase. No time limit mentioned.",
+    "headsUp": "Only two Google reviews and a 3.5 rating, so the room is unproven. Booking goes through a third-party app rather than a walk-in counter.",
+    "vibe": 3,
+    "uniq": 2,
+    "food": 2,
+    "work": 4,
+    "why": {
+      "vibe": "Nothing in the evidence suggests more than a tidy office floor.",
+      "uniq": "A chain branch; the free snack machine is the only distinguishing detail on record.",
+      "food": "Free vending drinks, ice cream and snacks per the one review.",
+      "work": "Long weekday hours, booths and outlets are all there; the app booking and thin track record cost it a point."
+    },
+    "quotes": [
+      {
+        "date": "2025-06",
+        "text": "無料自販機、アイス、お菓子と充実してますね。"
+      }
+    ],
+    "summaryEn": "A single lukewarm review notes the well-stocked free vending machine, ice cream and snacks; nothing else is on record.",
+    "signals": {
+      "outlets": "some",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "",
+      "timeLimit": ""
+    }
+  },
+  "P07": {
+    "pitch": "Cheap study-room-cum-lounge on the 3F of an old building three minutes south of Nakano station; a talking lounge and a silent room, open till 23:00.",
+    "tags": [
+      "PAID DROP-IN",
+      "FREE DRINK BAR",
+      "CALLS OK",
+      "QUIET ROOM",
+      "LATE HOURS",
+      "STUDENTS"
+    ],
+    "priceLine": "¥495/H · ¥2,475 CAP",
+    "order": [
+      "Free drink bar",
+      "No microwave, per a reviewer's request"
+    ],
+    "best": "Late evenings are quiet and lightly used; drop-in reception closes at 23:00. Pick the silent room if you want to avoid the lounge, where loud remote interviews have been reported.",
+    "workNotes": "Wi-Fi, copier and lockers; the lounge allows calls and video meetings, the office room does not. Staff are absent at night, so you register and pay online before entry, re-entering your details each visit.",
+    "headsUp": "The building is old with narrow, steep stairs and a single unisex toilet; several reviewers found staff curt or unhelpful. Not the polished new-office room some expect.",
+    "vibe": 2,
+    "uniq": 2,
+    "food": 2,
+    "work": 4,
+    "why": {
+      "vibe": "The room is clean but the building, stairs and toilet drag it down to a functional study space.",
+      "uniq": "A split talking/silent layout is sensible, not distinctive.",
+      "food": "Free drinks and nothing else.",
+      "work": "Cheap day cap, late hours, calls permitted and a quiet room; the unstaffed online sign-in and lounge noise are the friction."
+    },
+    "quotes": [
+      {
+        "date": "2026-05",
+        "text": "夜遅めだからか利用者は少なめで静かで快適です。"
+      },
+      {
+        "date": "2022-11",
+        "text": "会話OKのスペースと会話NGの集中スペースに分かれていて、快適に利用できました。"
+      },
+      {
+        "date": "2022-10",
+        "text": "自習室の中はキレイですが、ビル自体は旧い建物です。"
+      },
+      {
+        "date": "2022-09",
+        "text": "室内の全員が辟易とするレベルの声量で採用面接をする人もおり"
+      }
+    ],
+    "summaryEn": "Reviewers value the low price, late hours and the separation of talking and silent rooms; the recurring complaints are unfriendly or mumbling staff, an ageing building with steep stairs, a shared single toilet and the occasional very loud caller in the lounge.",
+    "signals": {
+      "outlets": "not mentioned",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "quiet late evenings",
+      "timeLimit": "drop-in reception until 23:00"
+    }
+  },
+  "P08": {
+    "pitch": "Bargain share office on the 6F of a small block near Roppongi-itchome, part of the Katana chain; hourly desks in a plain room for those who just need a seat.",
+    "tags": [
+      "PAID DROP-IN",
+      "CHAIN",
+      "CHEAP",
+      "WEEKDAYS ONLY"
+    ],
+    "priceLine": "¥330/H",
+    "order": [
+      "Drinks: not confirmed"
+    ],
+    "best": "Weekdays only; Google lists 10:00-17:00 while another source says coworking runs 9:00-21:00, so a mid-afternoon visit is the safe bet.",
+    "workNotes": "Wi-Fi and outlets stated; nothing on booths, calls or time rules. Priced per hour, so short sessions work out cheap.",
+    "headsUp": "Google now shows the address under a different name (odorana), which may mean a rebrand or a change of operator; hours conflict between sources and weekends are closed. A 3.1 rating with terse reviews.",
+    "vibe": 2,
+    "uniq": 1,
+    "food": 1,
+    "work": 3,
+    "why": {
+      "vibe": "Reviews stretch to 'so-so' and 'cheap', which says enough about the room.",
+      "uniq": "A generic chain share office chosen for its price.",
+      "food": "No drink service mentioned.",
+      "work": "Wi-Fi and outlets, but short and disputed hours, weekday only, and an operator that may have changed."
+    },
+    "quotes": [
+      {
+        "date": "2024-12",
+        "text": "まぁまぁ"
+      },
+      {
+        "date": "2022-02",
+        "text": "六本木の中で安くて利便性がよい。"
+      },
+      {
+        "date": "2019-10",
+        "text": "安いシェアオフィス"
+      }
+    ],
+    "summaryEn": "The few brief reviews agree it is cheap for a Roppongi address and convenient, and say little else; the tone is lukewarm.",
+    "signals": {
+      "outlets": "some",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "",
+      "timeLimit": ""
+    }
+  },
+  "P09": {
+    "pitch": "Mitsui Fudosan's corporate satellite-office brand on the 18F of Tokyo Midtown, connected to Roppongi station; smart, spacious, geared to contracted companies.",
+    "tags": [
+      "PAID DROP-IN",
+      "CHAIN",
+      "PHONE BOOTHS",
+      "MEMBERS FIRST",
+      "NEAR STATION",
+      "WEEKDAYS ONLY"
+    ],
+    "priceLine": "¥310/10 MIN",
+    "order": [
+      "Drinks: not confirmed"
+    ],
+    "best": "Weekdays 08:00-21:00 only; the space is described as wide and comfortable, so an off-peak weekday afternoon should give you room. Closed weekends.",
+    "workNotes": "Wi-Fi, outlets and phone booths; billed in 10-minute units under Plan A, which makes a long day expensive. Entry involves a check-in process that reviewers found laborious.",
+    "headsUp": "Work Styling is primarily for employees of contracted companies, so confirm that individual drop-in is available before turning up. One recent reviewer found reception cold.",
+    "vibe": 4,
+    "uniq": 2,
+    "food": 1,
+    "work": 3,
+    "why": {
+      "vibe": "A polished Midtown floor that a reviewer likened to WeWork and found more comfortable.",
+      "uniq": "A well-run but standard-issue corporate satellite office.",
+      "food": "Nothing on drinks in the claims or reviews.",
+      "work": "Good facilities, but per-10-minute billing, a fiddly entry and a corporate-membership bias make it awkward as a drop-in."
+    },
+    "quotes": [
+      {
+        "date": "2025-11",
+        "text": "受付は対応が塩で悲しい"
+      },
+      {
+        "date": "2023-04",
+        "text": "洒落たスペースでwe workっぽいですが、こちらの方が居心地良いかもです"
+      },
+      {
+        "date": "2023-02",
+        "text": "入るのに手間がかかりますが、施設はきれいで快適です。"
+      }
+    ],
+    "summaryEn": "Reviewers find the facility clean, spacious and comfortable, but note that getting in takes effort and one recent visitor found the reception unwelcoming.",
+    "signals": {
+      "outlets": "some",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "",
+      "timeLimit": "billed per 10 minutes"
+    }
+  },
+  "P10": {
+    "pitch": "Eight private booths and meeting rooms on the 2F of a small building by Kitasenju's east exit; an H1T branch that reviewers say is corporate-contract only.",
+    "tags": [
+      "PAID DROP-IN",
+      "CHAIN",
+      "MEMBERS FIRST",
+      "BOOTHS",
+      "WEEKDAYS ONLY"
+    ],
+    "priceLine": "¥280/15 MIN",
+    "order": [
+      "Snacks provided but rarely restocked",
+      "Free drinks at the west-exit branch; not confirmed here"
+    ],
+    "best": "Weekdays and holidays 08:00-20:00, closed Saturday and Sunday; the sister branch in Kitasenju Marui (4F) opens daily 08:00-20:00 and is the better first stop.",
+    "workNotes": "Private booths from ¥280 per 15 minutes with Wi-Fi, outlets, monitors and smart locks; calls and video meetings are the point of the booths. No joining fee is claimed, but the latest review says corporate contracts only.",
+    "headsUp": "A 2.3-star listing: the most recent review simply says corporate contracts only, and an earlier one describes a broken chair left unrepaired for months and empty snack shelves.",
+    "vibe": 2,
+    "uniq": 1,
+    "food": 2,
+    "work": 3,
+    "why": {
+      "vibe": "A small booth-only floor with maintenance complaints.",
+      "uniq": "A generic chain satellite office.",
+      "food": "Snacks are mentioned, though seldom replenished.",
+      "work": "Booths with monitors, but weekday-only hours, doubtful drop-in access and neglect reported by reviewers."
+    },
+    "quotes": [
+      {
+        "date": "2026-09",
+        "text": "法人契約のみ"
+      },
+      {
+        "date": "2024-03",
+        "text": "お菓子もすぐになくなってしまい、補充されないことが多い。"
+      },
+      {
+        "date": "2023-09",
+        "text": "東口だとここが駅に近くてよい。交番の前の建物2階にあります。"
+      }
+    ],
+    "summaryEn": "Four reviews, mostly negative: access appears limited to corporate contracts, a booth chair was left broken for a long time and snacks run out; the only praise is for the location near the east exit.",
+    "signals": {
+      "outlets": "some",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "",
+      "timeLimit": ""
+    }
+  },
+  "P11": {
+    "pitch": "Staffed business centre on the 10F of the Tokyo Art Center, seven minutes from Kitasenju; walk-in desks by the hour with no membership, weekdays only.",
+    "tags": [
+      "PAID DROP-IN",
+      "NO REGISTRATION",
+      "WEEKDAYS ONLY",
+      "MEETING ROOMS"
+    ],
+    "priceLine": "¥660/H · ¥3,300/5H",
+    "order": [
+      "Drinks: not confirmed"
+    ],
+    "best": "Weekdays 09:00-18:00 only, closed weekends and holidays, so it suits a working-hours visit rather than an evening. No reviews to say which seats to pick.",
+    "workNotes": "Wi-Fi, outlets, meeting rooms, copier and a staffed reception; no joining fee or registration needed. Hourly or 3- and 5-hour blocks.",
+    "headsUp": "Closes at 18:00 and has no Google reviews or rating, so nothing is known about noise or crowding. Google categorises it as a company office rather than a coworking space.",
+    "vibe": 2,
+    "uniq": 1,
+    "food": 1,
+    "work": 3,
+    "why": {
+      "vibe": "A conventional business centre with no evidence of anything beyond the functional.",
+      "uniq": "A standard serviced office offering hourly desks.",
+      "food": "No drinks mentioned.",
+      "work": "Reception, outlets and Wi-Fi with no sign-up, but a 09:00-18:00 weekday window limits its use."
+    },
+    "quotes": [],
+    "summaryEn": "No recent Google reviews to draw on.",
+    "signals": {
+      "outlets": "some",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "",
+      "timeLimit": ""
+    }
+  },
+  "P12": {
+    "pitch": "Coffee shop and coworking hybrid in a new concrete building in Kichijoji Honcho, opened 2025; specialty coffee, outlets at every seat, a booth for calls.",
+    "tags": [
+      "PAID DROP-IN",
+      "CAFÉ",
+      "PHONE BOOTHS",
+      "OUTLETS EVERYWHERE",
+      "NEAR STATION"
+    ],
+    "priceLine": "¥500/H+",
+    "order": [
+      "Barista counter: hand drip ¥780, cold brew ¥630, oat-milk and decaf lattes",
+      "House-baked banana bread, cookies and pastries"
+    ],
+    "best": "Opens late at 10:30 and closes at 19:00. Reviews describe a mixed, relaxed crowd of laptops, prams and chatter, so the quieter option is a weekday late morning. Choose your seat first, then order at the counter.",
+    "workNotes": "Fast Wi-Fi, outlets at every seat and a web-meeting booth; the operator prices coworking from ¥500 an hour on top of the café. No time limit stated.",
+    "headsUp": "Closes at 19:00, and the room is a social café rather than a silent office, with children and dogs welcome. Order-and-collect can take ten minutes.",
+    "vibe": 4,
+    "uniq": 4,
+    "food": 4,
+    "work": 4,
+    "why": {
+      "vibe": "Reviewers call it stylish yet calm, with plants, varied seating and a free-and-easy crowd.",
+      "uniq": "A specialty coffee counter with a paid coworking layer and call booth is unusual for Kichijoji.",
+      "food": "Proper hand-drip and cold brew, alternative milks and house baking.",
+      "work": "Outlets everywhere, fast Wi-Fi and a booth, but the 19:00 close and café noise stop it being an all-day desk."
+    },
+    "quotes": [
+      {
+        "date": "2026-09",
+        "text": "なんか自由な雰囲気が気に入りました。"
+      },
+      {
+        "date": "2026-08",
+        "text": "まずは好きな席を選び、カウンターで注文。"
+      },
+      {
+        "date": "2026-07",
+        "text": "店内はシンプルで洗練されたおしゃれな空間。"
+      },
+      {
+        "date": "2026-07",
+        "text": "ハンドドリップコーヒー（780円）と水出しコーヒー（630円）をいただきました。"
+      }
+    ],
+    "summaryEn": "Almost uniformly warm reviews for the coffee, the baking, the friendly staff and the relaxed industrial interior; the only mild notes are a wait for orders and a busy, chatty room.",
+    "signals": {
+      "outlets": "many",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "lively; mixed crowd",
+      "timeLimit": ""
+    }
+  },
+  "P13": {
+    "pitch": "Bright shared office on the 8F of Kichijoji PARCO, now under the MIDORI.so banner; weekday-only drop-in with a silent room, call nooks and a friendly community.",
+    "tags": [
+      "PAID DROP-IN",
+      "FREE DRINK BAR",
+      "QUIET ROOM",
+      "NEAR STATION",
+      "WEEKDAYS ONLY",
+      "COMMUNITY"
+    ],
+    "priceLine": "¥550/H · ¥2,200/DAY",
+    "order": [
+      "Free coffee machine, coffee beans and tea bags",
+      "Starbucks downstairs; plenty of lunch nearby"
+    ],
+    "best": "Weekdays 10:00-18:00 only. The window-lined main room is the draw; take the separated silent room for writing and the half-enclosed seats for video calls. Sofa for lunch.",
+    "workNotes": "Wi-Fi, monitors (in short supply), meeting rooms, copier; a no-talking quiet room and semi-private meeting seats. 76 seats. Drop-in is restricted to weekday daytime, with members getting fuller access and other locations.",
+    "headsUp": "No weekend or evening drop-in, and the Google listing carries the MIDORI.so name rather than SkiiMa, so look for that on the PARCO directory. Reviewers want more monitors.",
+    "vibe": 4,
+    "uniq": 3,
+    "food": 2,
+    "work": 4,
+    "why": {
+      "vibe": "Many windows, a warm interior and staff who introduce people; reviewers use words like oasis.",
+      "uniq": "A department-store coworking floor with a real community is a distinct proposition, if not unique.",
+      "food": "Free coffee and tea on the floor, with a Starbucks and the whole of Kichijoji below.",
+      "work": "Silent room, call seats, monitors and a cheap day rate, but drop-in ends at 18:00 and skips weekends."
+    },
+    "quotes": [
+      {
+        "date": "2025-10",
+        "text": "会話や会議ができない集中できる静かな部屋が分けられている。"
+      },
+      {
+        "date": "2025-09",
+        "text": "窓が多くて明るいので居心地がとてもいいです。"
+      },
+      {
+        "date": "2025-09",
+        "text": "できれば土日もドロップイン利用できればうれしいですが"
+      },
+      {
+        "date": "2025-09",
+        "text": "モニター数をもう少し増やして欲しいです。"
+      }
+    ],
+    "summaryEn": "Near-perfect reviews praising the light, the layout of quiet and call zones, the kind staff and the station-side PARCO location; the only requests are weekend drop-in and more monitors.",
+    "signals": {
+      "outlets": "not mentioned",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "calm; member regulars",
+      "timeLimit": "drop-in weekdays 10:00-18:00"
+    }
+  },
+  "P14": {
+    "pitch": "Small wood-lined coworking and rental-space house nine minutes from Kichijoji station; 20 desks with free drinks, plus a studio, kitchen and gallery upstairs.",
+    "tags": [
+      "PAID DROP-IN",
+      "FREE DRINK BAR",
+      "RENTAL STUDIO",
+      "SMALL ROOM",
+      "MEETING ROOMS"
+    ],
+    "priceLine": "¥550/90 MIN · ¥2,200/DAY",
+    "order": [
+      "Free drink bar",
+      "Rental kitchen upstairs for bookings"
+    ],
+    "best": "Weekdays 09:00-21:00, Saturday to 17:00, closed Sunday. With only 20 seats, a weekday is safer; the reviews are mostly about upstairs events, which suggests the desk floor stays calm.",
+    "workNotes": "Wi-Fi, copier and a meeting room; 90-minute blocks up to a ¥2,200 day cap. Outlets not stated. Studio, kitchen and free-space rentals are booked online.",
+    "headsUp": "Almost every review concerns the rental spaces (exhibitions, workshops, shoots), not desk use, so expect the occasional event day. Closed Sundays and a fair walk from the station.",
+    "vibe": 4,
+    "uniq": 3,
+    "food": 2,
+    "work": 4,
+    "why": {
+      "vibe": "Reviewers describe warm wood, good lighting and unusually clean toilets and powder room.",
+      "uniq": "A coworking floor attached to a bookable studio, kitchen and gallery is a distinct local set-up.",
+      "food": "Free drinks; nothing more on the desk floor.",
+      "work": "Cheap day cap and long weekday hours, but 20 seats, no Sunday and unconfirmed outlets."
+    },
+    "quotes": [
+      {
+        "date": "2026-05",
+        "text": "施設内も木のぬくもりが感じられる落ち着いた雰囲気で、とても居心地がよく"
+      },
+      {
+        "date": "2026-05",
+        "text": "なんといっても水回り（トイレ・パウダールーム）が清潔で快適です。"
+      },
+      {
+        "date": "2026-04",
+        "text": "何より店長のアズマックスさんがよい人です。"
+      }
+    ],
+    "summaryEn": "Glowing reviews from people hiring the studio, kitchen and gallery floor: attentive staff, a clean and stylish interior, easy online booking. Nobody in the sample reviews it as a desk.",
+    "signals": {
+      "outlets": "not mentioned",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "",
+      "timeLimit": "90-minute blocks"
+    }
+  },
+  "P15": {
+    "pitch": "Modest chain share office on the 2F of a Honcho building five minutes from Kichijoji's north exit; hourly visitor desks, staffed all day, open seven days.",
+    "tags": [
+      "PAID DROP-IN",
+      "CHAIN",
+      "NEAR STATION",
+      "STAFFED",
+      "MEETING ROOMS"
+    ],
+    "priceLine": "¥550/H · ¥2,200/4H+",
+    "order": [
+      "Drinks: not confirmed"
+    ],
+    "best": "Open 09:00-21:00 daily, Sunday to 17:00, so it fills the weekend gap left by PARCO. Reviewers call it bright; nothing on crowding.",
+    "workNotes": "Wi-Fi, meeting rooms and a copier; visitor rate by the hour, capped at ¥2,200 after four hours. Outlets, booths and call rules are not stated.",
+    "headsUp": "Only eight reviews, all short and several years old. Expect a plain office room rather than a café.",
+    "vibe": 3,
+    "uniq": 1,
+    "food": 1,
+    "work": 4,
+    "why": {
+      "vibe": "Bright, clean and comfortable by all accounts, but a plain rented office floor.",
+      "uniq": "An ordinary chain branch.",
+      "food": "No drinks confirmed.",
+      "work": "Seven-day opening, a low day cap and resident staff; the unknown outlet and call situation is the caveat."
+    },
+    "quotes": [
+      {
+        "date": "2024-03",
+        "text": "常駐しているスタッフさんもとても親切で仕事しやすいです。"
+      },
+      {
+        "date": "2021-07",
+        "text": "明るくて過ごしやすい。仕事が捗ります。"
+      },
+      {
+        "date": "2021-02",
+        "text": "吉祥寺から駅近で便利！綺麗で居心地もよく作業がはかどります！"
+      }
+    ],
+    "summaryEn": "A handful of five-star one-liners praising the kind resident staff, brightness, cleanliness and station access; no complaints, but little detail.",
+    "signals": {
+      "outlets": "not mentioned",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "",
+      "timeLimit": ""
+    }
+  },
+  "P16": {
+    "pitch": "Independent coworking room on the 2F of a mixed-use block by Kita-Shinagawa's old shopping street; artificial turf, greenery and free Nespresso, weekdays only.",
+    "tags": [
+      "PAID DROP-IN",
+      "FREE DRINK BAR",
+      "WEEKDAYS ONLY",
+      "SMALL ROOM",
+      "QUIET"
+    ],
+    "priceLine": "¥550/H · ¥2,200/DAY",
+    "order": [
+      "Free Nespresso coffee and drinks",
+      "Office Glico snack box, cashless payment"
+    ],
+    "best": "Weekdays 09:45-20:00, closed weekends. Reviewers work full days here and call it calm; the 3F rental space and soundproofed meeting room take the events, leaving the 2F desks quiet.",
+    "workNotes": "Wi-Fi stated; staff lent a charging cable to one reviewer, so outlets are in use. Day rate ¥2,200. Meeting room is soundproofed for calls; open-floor call rules not stated.",
+    "headsUp": "The building entrance looks uninviting, and the space is small. Reviews stop in early 2023, so check it is still trading before a long trip. Closed Saturday and Sunday.",
+    "vibe": 4,
+    "uniq": 4,
+    "food": 2,
+    "work": 4,
+    "why": {
+      "vibe": "Turf floor, plants and wood give it an outdoorsy calm that reviewers keep coming back to.",
+      "uniq": "Nobody else in this batch put artificial grass on the floor.",
+      "food": "Free Nespresso and a paid Glico snack box.",
+      "work": "Cheap day rate, free coffee and a quiet room, held back by weekday-only hours and an unproven current status."
+    },
+    "quotes": [
+      {
+        "date": "2023-01",
+        "text": "北品川の渋い商店街がすぐそばで便利"
+      },
+      {
+        "date": "2022-07",
+        "text": "人工芝（しかもいいやつ）を床に採用していて、今まで見たコワーキングスペースとはちょっと違う。"
+      },
+      {
+        "date": "2021-03",
+        "text": "美味しいコーヒー（ネスプレッソ）が飲み放題で、オフィスグリコもあるので"
+      },
+      {
+        "date": "2021-03",
+        "text": "雑居ビルの2Fにあるため、入る前は躊躇しましたが、入口のドアを開けると良い意味でギャップがありました！"
+      }
+    ],
+    "summaryEn": "Consistently warm reviews for the turf-and-greenery interior, spotless toilets, free Nespresso, attentive staff and reasonable prices; the only reservation is a small, unprepossessing entrance, and the reviews are now a few years old.",
+    "signals": {
+      "outlets": "some",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "quiet",
+      "timeLimit": ""
+    }
+  },
+  "P17": {
+    "pitch": "JR East's one-person STATION BOOTH pods on the 2F of the Shinagawa East Building; a walk-in phone box with a monitor for a 15-minute call, not a day desk.",
+    "tags": [
+      "PAID DROP-IN",
+      "PHONE BOOTHS",
+      "CHAIN",
+      "NEAR STATION",
+      "WEEKDAYS ONLY"
+    ],
+    "priceLine": "¥275/15 MIN",
+    "order": [
+      "Bring your own; nothing on site"
+    ],
+    "best": "Weekdays 08:00-21:00 per Google; the location is described as quiet and easy to reach from the station. Useful for a call between trains, not for settling in.",
+    "workNotes": "Outlet and monitor inside the booth; walk-in possible without a reservation, though STATION WORK membership is the usual route. Billed per 15 minutes. Reviewers say the Wi-Fi is too weak to rely on, so tether.",
+    "headsUp": "Two of four reviews call the Wi-Fi unusable and one found the support centre unhelpful; the claim of 8:00-21:00 daily conflicts with Google's weekday-only hours.",
+    "vibe": 2,
+    "uniq": 3,
+    "food": 1,
+    "work": 3,
+    "why": {
+      "vibe": "A glass pod in an office-building corridor.",
+      "uniq": "The rail-station booth network is a distinct idea, even if every booth is the same.",
+      "food": "Nothing to drink or eat.",
+      "work": "Fine for a short call with a monitor, but weak Wi-Fi, 15-minute billing and a weekday-only listing rule out real work."
+    },
+    "quotes": [
+      {
+        "date": "2026-02",
+        "text": "Wi-Fiの電波が弱く、テザリングを利用する必要があります。"
+      },
+      {
+        "date": "2025-10",
+        "text": "問い合わせセンターが機能しない。対応が非常に不親切。"
+      },
+      {
+        "date": "2025-02",
+        "text": "立地は良いが、Wi-Fiが弱くて使い物にならない。"
+      },
+      {
+        "date": "2023-05",
+        "text": "アクセスが良く非常に静かな場所にあるため重宝している"
+      }
+    ],
+    "summaryEn": "Reviewers agree the location is good and quiet but repeatedly report weak Wi-Fi that forces tethering, plus an unresponsive enquiry centre.",
+    "signals": {
+      "outlets": "some",
+      "wifi": "yes",
+      "laptop": "common",
+      "crowding": "",
+      "timeLimit": "billed per 15 minutes"
+    }
+  }
+}
